@@ -8,3 +8,9 @@ add_executable(cpp main.cpp)
 add_subdirectory(lecture_01)
 
 add_subdirectory(lecture_04)
+
+add_subdirectory(lecture_05)
+
+add_subdirectory(lecture_07)
+
+add_subdirectory(lecture_08)

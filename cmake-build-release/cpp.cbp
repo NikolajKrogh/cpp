@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="cpp"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lecture_01\;CMake Files\lecture_04\;CMake Files\lecture_05\;CMake Files\lecture_07\;CMake Files\lecture_08\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpp">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 cpp"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cpp/fast">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 cpp/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="exercise01">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/exercise01" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 exercise01"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="exercise01/fast">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/exercise01" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 exercise01/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="exercise02">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/exercise02" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 exercise02"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="exercise02/fast">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/exercise02" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 exercise02/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_01/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lecture04_exercise01">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04/lecture04_exercise01" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04/Makefile&quot;  VERBOSE=1 lecture04_exercise01"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lecture04_exercise01/fast">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04/lecture04_exercise01" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04/Makefile&quot;  VERBOSE=1 lecture04_exercise01/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_04/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="dynamic_polymorphism">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05/dynamic_polymorphism" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05/Makefile&quot;  VERBOSE=1 dynamic_polymorphism"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="dynamic_polymorphism/fast">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05/dynamic_polymorphism" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05/Makefile&quot;  VERBOSE=1 dynamic_polymorphism/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lecture_07">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07/lecture_07" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07/Makefile&quot;  VERBOSE=1 lecture_07"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lecture_07/fast">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07/lecture_07" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07/Makefile&quot;  VERBOSE=1 lecture_07/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_07/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lecture_08">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/lecture_08" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/Makefile&quot;  VERBOSE=1 lecture_08"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lecture_08/fast">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/lecture_08" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/Makefile&quot;  VERBOSE=1 lecture_08/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_01/exercise_01.cpp">
+			<Option target="exercise01"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_01/exercise_02.cpp">
+			<Option target="exercise02"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_04/exercise_01.cpp">
+			<Option target="lecture04_exercise01"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_04/exercise_01.h">
+			<Option target="lecture04_exercise01"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_05/dynamic_polymorphism.cpp">
+			<Option target="dynamic_polymorphism"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_05/dynamic_polymorphism.h">
+			<Option target="dynamic_polymorphism"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_07/lecture_07.cpp">
+			<Option target="lecture_07"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_07/lecture_07.h">
+			<Option target="lecture_07"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_08/lecture_08.cpp">
+			<Option target="lecture_08"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_08/lecture_08.h">
+			<Option target="lecture_08"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/main.cpp">
+			<Option target="cpp"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_01/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lecture_01\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_04/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lecture_04\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_05/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lecture_05\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_07/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lecture_07\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_08/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lecture_08\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

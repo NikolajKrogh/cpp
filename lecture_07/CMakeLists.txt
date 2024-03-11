@@ -1,0 +1,1 @@
+add_executable(lecture_07 lecture_07.cpp)

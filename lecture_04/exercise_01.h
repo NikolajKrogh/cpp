@@ -12,10 +12,22 @@ public:
         points.push_back(other);
         return *this;
     }
-    Polylines() = default; // default constructor
+    // default constructor
+    Polylines() = default;
 
-    Polylines(const Polylines& other){ // copy constructor
-        points = other.points; // deep copy
+    // copy constructor
+    Polylines(const Polylines& other) : points (other.points) {}
+
+    // move constructor
+    Polylines(Polylines&& other) noexcept : points(std::move(other.points)) {}
+
+    // copy assignment
+    Polylines& operator = (const Polylines& other)
+    {
+        if (this != &other) {
+            points = other.points;
+        }
+        return *this;
     }
 
 };

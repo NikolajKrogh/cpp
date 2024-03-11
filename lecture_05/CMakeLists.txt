@@ -1,0 +1,1 @@
+add_executable(dynamic_polymorphism dynamic_polymorphism.cpp)
