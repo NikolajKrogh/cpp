@@ -18,10 +18,12 @@ std::ostream& operator<<(std::ostream& os, const std::vector<T>& v)
     return os << "}";
 }
 
-template <typename T>  // specialization
-struct is_container<T,
 
-> : std::true_type {}; // computes "true type"
+template <typename T>
+struct is_container : std::false_type {};
+
+template <typename T>
+struct is_container<std::vector<T>> : std::true_type {};
 
 int main(){
     std::cout << std::vector{1,2,3} << std::endl; // should print "{1,2,3}"

@@ -14,3 +14,5 @@ add_subdirectory(lecture_05)
 add_subdirectory(lecture_07)
 
 add_subdirectory(lecture_08)
+
+add_subdirectory(lecture_09)

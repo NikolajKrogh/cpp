@@ -17,3 +17,6 @@
 /mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/CMakeFiles/lecture_08.dir
 /mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/CMakeFiles/edit_cache.dir
 /mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_08/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_09/CMakeFiles/lecture_09.dir
+/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_09/CMakeFiles/edit_cache.dir
+/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-release/lecture_09/CMakeFiles/rebuild_cache.dir

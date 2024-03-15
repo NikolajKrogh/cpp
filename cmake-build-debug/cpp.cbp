@@ -5,7 +5,7 @@
 		<Option title="cpp"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\lecture_01\;CMake Files\lecture_04\;CMake Files\lecture_05\;CMake Files\lecture_07\;CMake Files\lecture_08\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lecture_01\;CMake Files\lecture_04\;CMake Files\lecture_05\;CMake Files\lecture_07\;CMake Files\lecture_08\;CMake Files\lecture_09\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug"/>
@@ -345,6 +345,50 @@
 					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_08/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="lecture_09">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09/lecture_09" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09/Makefile&quot;  VERBOSE=1 lecture_09"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lecture_09/fast">
+				<Option output="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09/lecture_09" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09/Makefile&quot;  VERBOSE=1 lecture_09/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/lecture_09/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_01/exercise_01.cpp">
 			<Option target="exercise01"/>
@@ -376,6 +420,12 @@
 		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_08/lecture_08.h">
 			<Option target="lecture_08"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_09/lecture_09.cpp">
+			<Option target="lecture_09"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_09/lecture_09.h">
+			<Option target="lecture_09"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/main.cpp">
 			<Option target="cpp"/>
 		</Unit>
@@ -396,6 +446,9 @@
 		</Unit>
 		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_08/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lecture_08\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/nikol/Documents/GitHub/cpp/lecture_09/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lecture_09\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

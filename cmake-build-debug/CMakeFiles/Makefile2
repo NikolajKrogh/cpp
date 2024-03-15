@@ -69,6 +69,7 @@ all: lecture_04/all
 all: lecture_05/all
 all: lecture_07/all
 all: lecture_08/all
+all: lecture_09/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -77,6 +78,7 @@ preinstall: lecture_04/preinstall
 preinstall: lecture_05/preinstall
 preinstall: lecture_07/preinstall
 preinstall: lecture_08/preinstall
+preinstall: lecture_09/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -86,6 +88,7 @@ clean: lecture_04/clean
 clean: lecture_05/clean
 clean: lecture_07/clean
 clean: lecture_08/clean
+clean: lecture_09/clean
 .PHONY : clean
 
 #=============================================================================
@@ -164,6 +167,21 @@ lecture_08/preinstall:
 # Recursive "clean" directory target.
 lecture_08/clean: lecture_08/CMakeFiles/lecture_08.dir/clean
 .PHONY : lecture_08/clean
+
+#=============================================================================
+# Directory level rules for directory lecture_09
+
+# Recursive "all" directory target.
+lecture_09/all: lecture_09/CMakeFiles/lecture_09.dir/all
+.PHONY : lecture_09/all
+
+# Recursive "preinstall" directory target.
+lecture_09/preinstall:
+.PHONY : lecture_09/preinstall
+
+# Recursive "clean" directory target.
+lecture_09/clean: lecture_09/CMakeFiles/lecture_09.dir/clean
+.PHONY : lecture_09/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/cpp.dir
@@ -346,6 +364,32 @@ lecture_08: lecture_08/CMakeFiles/lecture_08.dir/rule
 lecture_08/CMakeFiles/lecture_08.dir/clean:
 	$(MAKE) $(MAKESILENT) -f lecture_08/CMakeFiles/lecture_08.dir/build.make lecture_08/CMakeFiles/lecture_08.dir/clean
 .PHONY : lecture_08/CMakeFiles/lecture_08.dir/clean
+
+#=============================================================================
+# Target rules for target lecture_09/CMakeFiles/lecture_09.dir
+
+# All Build rule for target.
+lecture_09/CMakeFiles/lecture_09.dir/all:
+	$(MAKE) $(MAKESILENT) -f lecture_09/CMakeFiles/lecture_09.dir/build.make lecture_09/CMakeFiles/lecture_09.dir/depend
+	$(MAKE) $(MAKESILENT) -f lecture_09/CMakeFiles/lecture_09.dir/build.make lecture_09/CMakeFiles/lecture_09.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/CMakeFiles --progress-num=15,16 "Built target lecture_09"
+.PHONY : lecture_09/CMakeFiles/lecture_09.dir/all
+
+# Build rule for subdir invocation for target.
+lecture_09/CMakeFiles/lecture_09.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lecture_09/CMakeFiles/lecture_09.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/nikol/Documents/GitHub/cpp/cmake-build-debug/CMakeFiles 0
+.PHONY : lecture_09/CMakeFiles/lecture_09.dir/rule
+
+# Convenience name for target.
+lecture_09: lecture_09/CMakeFiles/lecture_09.dir/rule
+.PHONY : lecture_09
+
+# clean rule for target.
+lecture_09/CMakeFiles/lecture_09.dir/clean:
+	$(MAKE) $(MAKESILENT) -f lecture_09/CMakeFiles/lecture_09.dir/build.make lecture_09/CMakeFiles/lecture_09.dir/clean
+.PHONY : lecture_09/CMakeFiles/lecture_09.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

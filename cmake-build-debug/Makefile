@@ -207,6 +207,19 @@ lecture_08/fast:
 	$(MAKE) $(MAKESILENT) -f lecture_08/CMakeFiles/lecture_08.dir/build.make lecture_08/CMakeFiles/lecture_08.dir/build
 .PHONY : lecture_08/fast
 
+#=============================================================================
+# Target rules for targets named lecture_09
+
+# Build rule for target.
+lecture_09: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lecture_09
+.PHONY : lecture_09
+
+# fast build rule for target.
+lecture_09/fast:
+	$(MAKE) $(MAKESILENT) -f lecture_09/CMakeFiles/lecture_09.dir/build.make lecture_09/CMakeFiles/lecture_09.dir/build
+.PHONY : lecture_09/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -246,6 +259,7 @@ help:
 	@echo "... lecture04_exercise01"
 	@echo "... lecture_07"
 	@echo "... lecture_08"
+	@echo "... lecture_09"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
