@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/dynamic_polymorphism.dir/dynamic_polymorphism.cpp.o -o dynamic_polymorphism 

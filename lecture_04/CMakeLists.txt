@@ -1,1 +1,0 @@
-add_executable(lecture04_exercise01 exercise_01.cpp)

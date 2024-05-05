@@ -12,17 +12,18 @@ namespace stochastic_simulation_library {
         std::string name;
         double quantity;
     public:
-        std::string get_name() const;
-
-        void set_name(std::string name);
-
-        double get_quantity() const;
-
-        void set_quantity(double quantity);
-
-        Molecule(std::string name, double quantity);
+        Molecule(const std::string &name, double quantity);
 
         ~Molecule() = default;
+
+        std::string get_name() const;
+        void set_name(const std::string &name);
+
+        double get_quantity() const;
+        void set_quantity(double quantity);
+
+        void operator -=(double quantity);
+        void operator +=(double quantity);
     };
 
 
@@ -35,7 +36,7 @@ namespace stochastic_simulation_library {
     public:
         std::string get_name() const;
 
-        void set_name(std::string name);
+        void set_name(const std::string &name);
 
         double get_rate() const;
 
@@ -49,9 +50,9 @@ namespace stochastic_simulation_library {
 
         void add_product(const std::vector <Molecule> &p);
 
-        Reaction(std::string name, double rate, std::vector <Molecule> reactants, std::vector <Molecule> products);
+        Reaction(const std::string &name, double rate, const std::vector <Molecule> &reactants, const std::vector <Molecule> &products);
 
-        ~Reaction();
+        ~Reaction() = default;
     };
 
     class Vessel {
@@ -59,13 +60,13 @@ namespace stochastic_simulation_library {
         std::vector <Molecule> molecules;
         std::vector <Reaction> reactions;
     public:
-        Vessel(std::vector <Molecule> molecules, std::vector <Reaction> reactions);
+        Vessel(const std::vector <Molecule> &molecules, const std::vector <Reaction> &reactions);
 
-        ~Vessel();
+        ~Vessel() = default;
 
-        void add_molecule(Molecule molecule);
+        void add_molecule(const Molecule &molecule);
 
-        void add_reaction(Reaction reaction);
+        void add_reaction(const Reaction &reaction);
     };
 }
 #endif //EXAM_STOCHASTIC_SIMULATION_LIBRARY_H

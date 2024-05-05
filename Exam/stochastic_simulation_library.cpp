@@ -2,7 +2,7 @@
 
 namespace stochastic_simulation_library {
     // Molecule
-    Molecule::Molecule(std::string name, double quantity) {
+    Molecule::Molecule(const std::string &name, double quantity) {
         this->name = name;
         this->quantity = quantity;
     }
@@ -10,39 +10,47 @@ namespace stochastic_simulation_library {
     std::string Molecule::get_name() const {
         return name;
     };
-    void Molecule::set_name(std::string name) {
-        Molecule::name = name;
+    void Molecule::set_name(const std::string &n) {
+        Molecule::name = n;
     };
 
 
     double Molecule::get_quantity() const {
         return quantity;
     };
-    void Molecule::set_quantity(double quantity) {
-        Molecule::quantity = quantity;
+    void Molecule::set_quantity(double q) {
+        Molecule::quantity = q;
+    }
+
+    void Molecule::operator-=(double q) {
+        Molecule::quantity -= q;
+    };
+
+    void Molecule::operator+=(double q){
+        Molecule::quantity += q;
     };
 
     // Reaction
-    Reaction::Reaction(std::string name, double rate, std::vector<Molecule> reactants, std::vector<Molecule> products) {
+    Reaction::Reaction(const std::string &name, double rate, const std::vector<Molecule> &r, const std::vector<Molecule> &p) {
         this->name = name;
         this->rate = rate;
-        this->reactants = reactants;
-        this->products = products;
+        this->reactants = r;
+        this->products = p;
     }
 
     std::string Reaction::get_name() const {
         return name;
     };
-    void Reaction::set_name(std::string name) {
-        Reaction::name = name;
+    void Reaction::set_name(const std::string &n) {
+        Reaction::name = n;
     };
 
     double Reaction::get_rate() const {
         return rate;
     };
 
-    void Reaction::set_rate(double rate) {
-        Reaction::rate = rate;
+    void Reaction::set_rate(double r) {
+        Reaction::rate = r;
     };
 
     void Reaction::add_reactant(std::initializer_list<Molecule> r) {
@@ -70,17 +78,17 @@ namespace stochastic_simulation_library {
     }
 
     // Vessel
-    Vessel::Vessel(std::vector<Molecule> molecules, std::vector<Reaction> reactions) {
+    Vessel::Vessel(const std::vector<Molecule> &molecules, const std::vector<Reaction> &reactions) {
         this->molecules = molecules;
         this->reactions = reactions;
     }
 
-    void Vessel::add_molecule(Molecule molecule) {
-        molecules.push_back(molecule);
+    void Vessel::add_molecule(const Molecule& m) {
+        molecules.push_back(m);
     }
 
-    void Vessel::add_reaction(Reaction reaction) {
-        reactions.push_back(reaction);
+    void Vessel::add_reaction(const Reaction& r) {
+        reactions.push_back(r);
     }
 
 }

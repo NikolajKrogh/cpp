@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/lecture_09.dir/lecture_09.cpp.o -o lecture_09 
