@@ -2,5 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Coroutines" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Coroutines/cmake-build-debug/_deps/doctest-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Coroutines/cmake-build-debug/_deps/libcoro-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Coroutines/cmake-build-debug/_deps/libcoro-src/vendor/c-ares/c-ares" vcs="Git" />
   </component>
 </project>
