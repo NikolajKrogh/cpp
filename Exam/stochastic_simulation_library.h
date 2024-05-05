@@ -4,8 +4,11 @@
 #include <string>
 #include <vector>
 
-
 namespace stochastic_simulation_library {
+typedef enum {
+    left,
+    right
+}reaction_side;
 
     class Molecule {
     private:
@@ -27,13 +30,27 @@ namespace stochastic_simulation_library {
     };
 
 
+    class Environment {
+    private:
+
+    public:
+        Environment();
+        ~Environment() = default;
+    };
+
     class Reaction {
     private:
         std::string name;
         double rate;
         std::vector <Molecule> reactants;
         std::vector <Molecule> products;
+        reaction_side side = left;
     public:
+
+        Reaction(const std::string &name, double rate, const std::vector <Molecule> &reactants, const std::vector <Molecule> &products);
+        Reaction();
+        ~Reaction() = default;
+
         std::string get_name() const;
 
         void set_name(const std::string &name);
@@ -50,10 +67,15 @@ namespace stochastic_simulation_library {
 
         void add_product(const std::vector <Molecule> &p);
 
-        Reaction(const std::string &name, double rate, const std::vector <Molecule> &reactants, const std::vector <Molecule> &products);
+        Reaction operator >> (double reaction_rate);
 
-        ~Reaction() = default;
+        Reaction operator >>= (const Molecule &products);
+
+        Reaction operator + (const Molecule &molecule);
+
+        Reaction operator >>= (const Environment &env);
     };
+
 
     class Vessel {
     private:
@@ -67,6 +89,7 @@ namespace stochastic_simulation_library {
         void add_molecule(const Molecule &molecule);
 
         void add_reaction(const Reaction &reaction);
+
     };
 }
 #endif //EXAM_STOCHASTIC_SIMULATION_LIBRARY_H

@@ -37,6 +37,8 @@ namespace stochastic_simulation_library {
         this->reactants = r;
         this->products = p;
     }
+    Reaction::Reaction() {
+    }
 
     std::string Reaction::get_name() const {
         return name;
@@ -77,6 +79,30 @@ namespace stochastic_simulation_library {
         }
     }
 
+    Reaction Reaction::operator>>(double r) {
+        Reaction::rate = r;
+        return *this;
+    }
+
+    Reaction Reaction::operator>>=(const Molecule &p) {
+        Reaction::side = right;
+        Reaction::products.push_back(p);
+        return *this;
+    }
+
+    Reaction Reaction::operator+(const Molecule &m) {
+        if (Reaction::side == left) {
+            Reaction::reactants.push_back(m);
+        } else {
+            Reaction::products.push_back(m);
+        }
+        return *this;
+    }
+
+    Reaction Reaction::operator>>=(const Environment &env) {
+        return Reaction();
+    }
+
     // Vessel
     Vessel::Vessel(const std::vector<Molecule> &molecules, const std::vector<Reaction> &reactions) {
         this->molecules = molecules;
@@ -91,4 +117,7 @@ namespace stochastic_simulation_library {
         reactions.push_back(r);
     }
 
+    Environment::Environment() {
+
+    }
 }
