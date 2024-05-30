@@ -46,6 +46,7 @@ typedef enum {
         Environment();
         ~Environment() = default;
     };
+
 #pragma region Reaction
     class Reaction {
     private:
@@ -88,6 +89,7 @@ typedef enum {
     };
 
 #pragma endregion Reaction
+
 
     class Arrow {
     public:

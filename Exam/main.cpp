@@ -25,7 +25,7 @@ int main() {
     const auto D_R = v.add("D_R", 0);
     const auto MA = v.add("MA", 0);
     const auto MR = v.add("MR", 0);
-    const auto A = v.add("A", 0);
+    const auto A = v.add("A", 1);
     const auto R = v.add("R", 0);
     const auto C = v.add("C", 0);
     v.add((A + DA) >> gammaA >>= D_A);
@@ -46,5 +46,6 @@ int main() {
     v.add(MR >> deltaMR >>= env);
 
     v.network_graph();
+    v.pretty_print();
     return 0;
 }
