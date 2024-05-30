@@ -28,7 +28,21 @@ namespace stochastic_simulation_library {
 
     void Molecule::operator+=(double q){
         Molecule::quantity += q;
-    };
+    }
+
+    Reaction Molecule::operator+(const Molecule &molecule) const {
+        const auto r = new stochastic_simulation_library::Reaction();
+        r->add_reactant({*this, molecule});
+        return *r;
+    }
+
+    Reaction Molecule::operator+(const Reaction &reaction) {
+        const auto r = new stochastic_simulation_library::Reaction();
+        r->add_reactant({*this});
+        r->add_reactant(reaction.reactants);
+        return *r;
+    }
+
 
     // Reaction
     Reaction::Reaction(const std::string &name, double rate, const std::vector<Molecule> &r, const std::vector<Molecule> &p) {
@@ -116,6 +130,25 @@ namespace stochastic_simulation_library {
     void Vessel::add_reaction(const Reaction& r) {
         reactions.push_back(r);
     }
+
+    Vessel::Vessel(const std::string &name) {
+        this->name = name;
+    }
+
+    Environment Vessel::environment() {
+        return Environment();
+    }
+
+    Molecule Vessel::add(std::string name, double quantity) {
+        auto m = Molecule(name, quantity);
+        molecules.push_back(m);
+        return m;
+    }
+
+    void Vessel::add(const Reaction &reaction) {
+        reactions.push_back(reaction);
+    }
+
 
     Environment::Environment() {
 

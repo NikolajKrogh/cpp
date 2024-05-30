@@ -5,6 +5,8 @@
 #include <vector>
 
 namespace stochastic_simulation_library {
+    class Reaction;
+
 typedef enum {
     left,
     right
@@ -27,6 +29,9 @@ typedef enum {
 
         void operator -=(double quantity);
         void operator +=(double quantity);
+        Reaction operator + (const Molecule &molecule) const;
+        Reaction operator + (const Reaction &reaction);
+
     };
 
 
@@ -42,14 +47,14 @@ typedef enum {
     private:
         std::string name;
         double rate;
-        std::vector <Molecule> reactants;
         std::vector <Molecule> products;
         reaction_side side = left;
     public:
-
         Reaction(const std::string &name, double rate, const std::vector <Molecule> &reactants, const std::vector <Molecule> &products);
         Reaction();
         ~Reaction() = default;
+
+        std::vector <Molecule> reactants;
 
         std::string get_name() const;
 
@@ -74,6 +79,8 @@ typedef enum {
         Reaction operator + (const Molecule &molecule);
 
         Reaction operator >>= (const Environment &env);
+
+
     };
 
 
@@ -81,14 +88,22 @@ typedef enum {
     private:
         std::vector <Molecule> molecules;
         std::vector <Reaction> reactions;
+        std::string name;
     public:
         Vessel(const std::vector <Molecule> &molecules, const std::vector <Reaction> &reactions);
+        Vessel(const std::string &name);
 
         ~Vessel() = default;
 
         void add_molecule(const Molecule &molecule);
 
         void add_reaction(const Reaction &reaction);
+
+        Molecule add(std::string name, double quantity);
+
+        void add(const Reaction &reaction);
+
+        Environment environment();
 
     };
 }
