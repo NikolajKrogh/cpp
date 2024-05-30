@@ -2,6 +2,8 @@
 #include "stochastic_simulation_library.h"
 
 int main() {
+#pragma region Constants
+
     const auto alphaA = 50;
     const auto alpha_A = 500;
     const auto alphaR = 0.01;
@@ -17,6 +19,8 @@ int main() {
     const auto deltaMR = 0.5;
     const auto thetaA = 50;
     const auto thetaR = 100;
+#pragma endregion Constants
+
     auto v = stochastic_simulation_library::Vessel{"Circadian Rhythm"};
     const auto env = v.environment();
     const auto DA = v.add("DA", 1);
