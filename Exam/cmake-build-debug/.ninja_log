@@ -1,4 +1,22 @@
 # ninja log v5
-0	693	1717059300427391387	CMakeFiles/Exam.dir/main.cpp.o	483368e1ef9ccf9d
-0	781	1717059300515393111	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
-781	879	1717059300615395070	Exam	cc8cf0bde1f56898
+0	655	1717066097656058537	CMakeFiles/Exam.dir/main.cpp.o	483368e1ef9ccf9d
+1	1034	1717066098032064089	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
+1034	1141	1717066098140065683	Exam	cc8cf0bde1f56898
+1	1007	1717066171601144893	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
+1007	1103	1717066171697146297	Exam	cc8cf0bde1f56898
+1	906	1717066205353637303	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
+907	1003	1717066205449638701	Exam	cc8cf0bde1f56898
+0	929	1717066231086011374	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
+929	1027	1717066231182012768	Exam	cc8cf0bde1f56898
+1	934	1717066305359085137	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
+934	1027	1717066305455086519	Exam	cc8cf0bde1f56898
+1	1015	1717066858478893791	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
+1015	1115	1717066858578895183	Exam	cc8cf0bde1f56898
+0	1335	1717066941208043724	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
+1335	1437	1717066941312045168	Exam	cc8cf0bde1f56898
+1	933	1717067280242376142	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
+933	1029	1717067280334376451	Exam	cc8cf0bde1f56898
+0	940	1717067666480675657	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
+940	1037	1717067666580676455	Exam	cc8cf0bde1f56898
+0	1053	1717067764021489922	CMakeFiles/Exam.dir/stochastic_simulation_library.cpp.o	85442c72b889ebb9
+1053	1153	1717067764121490792	Exam	cc8cf0bde1f56898

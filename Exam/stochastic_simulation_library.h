@@ -17,6 +17,8 @@ typedef enum {
         std::string name;
         double quantity;
     public:
+        std::string graphviz_tag;
+
         Molecule(const std::string &name, double quantity);
 
         ~Molecule() = default;
@@ -31,6 +33,8 @@ typedef enum {
         void operator +=(double quantity);
         Reaction operator + (const Molecule &molecule) const;
         Reaction operator + (const Reaction &reaction);
+        Reaction operator >> (double reaction_rate) const;
+
 
     };
 
@@ -42,14 +46,14 @@ typedef enum {
         Environment();
         ~Environment() = default;
     };
-
+#pragma region Reaction
     class Reaction {
     private:
         std::string name;
         double rate;
-        std::vector <Molecule> products;
         reaction_side side = left;
     public:
+        std::vector <Molecule> products;
         Reaction(const std::string &name, double rate, const std::vector <Molecule> &reactants, const std::vector <Molecule> &products);
         Reaction();
         ~Reaction() = default;
@@ -74,15 +78,26 @@ typedef enum {
 
         Reaction operator >> (double reaction_rate);
 
-        Reaction operator >>= (const Molecule &products);
-
         Reaction operator + (const Molecule &molecule);
+
+        Reaction operator >>= (const Molecule &products);
 
         Reaction operator >>= (const Environment &env);
 
-
+        Reaction operator >>= (const Reaction &reaction);
     };
 
+#pragma endregion Reaction
+
+    class Arrow {
+    public:
+        std::string source;
+        std::vector<std::string> target;
+        double rate;
+
+        Arrow(std::string src, std::vector<std::string> tgt, double r);
+        ~Arrow() = default;
+    };
 
     class Vessel {
     private:
@@ -105,6 +120,9 @@ typedef enum {
 
         Environment environment();
 
+        void pretty_print();
+
+        void network_graph();
     };
 }
 #endif //EXAM_STOCHASTIC_SIMULATION_LIBRARY_H
