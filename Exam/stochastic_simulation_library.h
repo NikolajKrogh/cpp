@@ -3,10 +3,12 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 namespace stochastic_simulation_library {
 
 #pragma region Prototypes
+
     // Required to avoid circular dependencies
     class Reaction;
 
@@ -155,18 +157,39 @@ namespace stochastic_simulation_library {
         void pretty_print();
 
         std::vector<Arrow> create_arrows();
+
         void assign_tags_to_molecules();
+
         void write_to_file(const std::vector<Arrow> &arrows);
+
         void network_graph();
     };
+
 #pragma endregion Vessel
 
+#pragma region SymbolTable
+
+    template<typename K, typename V>
     class SymbolTable {
+    private:
+        std::map<K, V> table;
     public:
         SymbolTable();
 
-        ~SymbolTable() = default;
+        ~SymbolTable();
+
+        void insert(K key, V value);
+
+        V get(K key);
+
+        bool contains(K key);
+
+        void testSymbolTable();
     };
+
+
+#pragma endregion SymbolTable
+
 }
 
 

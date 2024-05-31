@@ -241,23 +241,28 @@ namespace stochastic_simulation_library {
  */
     std::vector<Arrow> Vessel::create_arrows() {
         std::vector<Arrow> arrows;
+        // Iterate over each molecule
         for (const auto &molecule: molecules) {
+            // Iterate over each reaction
             for (const auto &reaction: reactions) {
+                // If the molecule is a reactant in the reaction
                 for (const auto &reactant: reaction.reactants) {
                     if (reactant.get_name() == molecule.get_name()) {
-                        std::vector<std::string> v_products = {};
+
+                        std::vector<std::string> vector_products = {};
                         for (const auto &product: reaction.products) {
-                            v_products.push_back(product.get_name());
+                            vector_products.push_back(product.get_name());
                         }
-                        std::vector<std::string> v = {};
+                        std::vector<std::string> matching_molecule_tags = {};
                         for (const auto &m: molecules) {
-                            for (const auto p: v_products) {
+                            for (const auto p: vector_products) {
+                                // If the name of the current molecule matches the current product name. Add the graphviz tag to the vector
                                 if (m.get_name() == p) {
-                                    v.push_back(m.graphviz_tag);
+                                    matching_molecule_tags.push_back(m.graphviz_tag);
                                 }
                             }
                         }
-                        auto arrow = Arrow(molecule.graphviz_tag, v, reaction.get_rate());
+                        auto arrow = Arrow(molecule.graphviz_tag, matching_molecule_tags, reaction.get_rate());
                         arrows.push_back(arrow);
                     }
                 }
@@ -310,21 +315,112 @@ namespace stochastic_simulation_library {
 
 #pragma region Arrow
 
+/**
+ * The Arrow object represents a reaction in the system, with a source molecule, target molecules, and a reaction rate.
+ *
+ * @param src The source molecule's Graphviz tag, represented as a string.
+ * @param tgt A vector of target molecules' Graphviz tags, represented as strings.
+ * @param r The rate of the reaction, represented as a double.
+ */
     Arrow::Arrow(std::string src, std::vector<std::string> tgt, double r) {
 
-        // Using move to avoid copying the string
+        // Using std::move to avoid copying the string
         source = std::move(src);
+
+        // Iterating over the target vector and adding each target to the Arrow's target vector
         for (auto &t: tgt) {
             target.push_back(t);
         }
+
+        // Setting the rate of the Arrow (reaction)
         rate = r;
     }
 
 #pragma endregion Arrow
 
-    SymbolTable::SymbolTable() {
+#pragma Symbol Table
+
+    template<typename K, typename V>
+    SymbolTable<K, V>::SymbolTable() = default;
+
+    template<typename K, typename V>
+    SymbolTable<K, V>::~SymbolTable() = default;
+
+/**
+ * Inserts a new key-value pair into the symbol table.
+ * If the key already exists in the table, it throws a runtime error.
+ *
+ * @tparam K The type of the key.
+ * @tparam V The type of the value.
+ * @param key The key of the new element.
+ * @param value The value of the new element.
+ * @throws std::runtime_error if the key already exists in the table.
+ */
+    template<typename K, typename V>
+    void SymbolTable<K, V>::insert(K key, V value) {
+        // If it is pointing to the end of the table, the key does not exist in the table
+        if (table.find(key) != table.end()) {
+            throw std::runtime_error("Symbol already exists in the table");
+        }
+        table[key] = value;
+    }
+
+/**
+ * Gets the value associated with the given key.
+ */
+    template<typename K, typename V>
+    V SymbolTable<K, V>::get(K key) {
+        if (table.find(key) == table.end()) {
+            throw std::runtime_error("Symbol not found in the table");
+        }
+        return table[key];
+    }
+
+/**
+ * Checks if the symbol table contains the given key.
+ */
+    template<typename K, typename V>
+    bool SymbolTable<K, V>::contains(K key) {
+        return table.find(key) != table.end();
+    }
+
+#pragma region Test Symbol Table
+
+    template<typename K, typename V>
+    void SymbolTable<K, V>::testSymbolTable() {
+        // Create a SymbolTable instance
+        stochastic_simulation_library::SymbolTable<std::string, double> symbolTable;
+
+        // Insert some key-value pairs
+        symbolTable.insert("DA", 1);
+        symbolTable.insert("D_A", 0);
+        symbolTable.insert("DR", 1);
+        symbolTable.insert("D_R", 0);
+        symbolTable.insert("MA", 0);
+        symbolTable.insert("MR", 0);
+        symbolTable.insert("A", 1);
+        symbolTable.insert("R", 0);
+        symbolTable.insert("C", 0);
+
+        // Check if a key exists
+        if (symbolTable.contains("DA")) {
+            std::cout << "DA exists in the symbol table." << std::endl;
+        } else {
+            std::cout << "DA does not exist in the symbol table." << std::endl;
+        }
+
+        // Get the value associated with a key
+        double value = symbolTable.get("DR");
+        std::cout << "The value of DR is " << value << std::endl;
+
+        // Try to insert a key that already exists
+        symbolTable.insert("DA", 1);
 
     }
+
+#pragma endregion Test Symbol Table
+
+#pragma endregion Symbol Table
 }
 
 
