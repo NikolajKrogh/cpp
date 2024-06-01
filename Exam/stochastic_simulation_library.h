@@ -111,6 +111,7 @@ namespace stochastic_simulation_library {
         Reaction operator>>=(const Environment &env);
 
         Reaction operator>>=(const Reaction &reaction);
+
     };
 
 #pragma endregion Reaction
@@ -189,6 +190,30 @@ namespace stochastic_simulation_library {
 
 
 #pragma endregion SymbolTable
+
+#pragma region Simulation
+
+    class Simulation {
+    private:
+        std::vector<Reaction> reactions;
+        double end_time;
+        std::vector<Molecule> state;
+    public:
+        Simulation(const std::vector<Reaction> &reactions, double end_time, const std::vector<Molecule> &state);
+
+        ~Simulation() = default;
+
+        double compute_delay(const Reaction &reaction);
+
+        Reaction *find_min_delay_reaction();
+
+        void update_reaction(Reaction *min_reaction);
+
+        void simulate(double end_time, const std::vector<Molecule> &state);
+
+    };
+
+#pragma endregion Simulation
 
 }
 

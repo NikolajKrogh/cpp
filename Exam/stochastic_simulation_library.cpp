@@ -2,6 +2,8 @@
 #include <fstream>
 #include <sstream>
 #include <utility>
+#include <random>
+#include <cmath>
 #include "stochastic_simulation_library.h"
 
 namespace stochastic_simulation_library {
@@ -338,7 +340,7 @@ namespace stochastic_simulation_library {
 
 #pragma endregion Arrow
 
-#pragma Symbol Table
+#pragma region Symbol Table
 
     template<typename K, typename V>
     SymbolTable<K, V>::SymbolTable() = default;
@@ -361,7 +363,7 @@ namespace stochastic_simulation_library {
         // If it is pointing to the end of the table, the key does not exist in the table
         if (table.find(key) != table.end()) {
             std::cout << "Symbol already exists in the table" << std::endl;
-        }else{
+        } else {
             std::cout << "Symbol" << key << " inserted into the table" << std::endl;
         }
         table[key] = value;
@@ -427,6 +429,140 @@ namespace stochastic_simulation_library {
 #pragma endregion Test Symbol Table
 
 #pragma endregion Symbol Table
+
+#pragma region Simulation
+
+    stochastic_simulation_library::Simulation::Simulation(const std::vector<Reaction> &reactions, double end_time,
+                                                          const std::vector<Molecule> &state) {
+        this->reactions = reactions;
+        this->end_time = end_time;
+        this->state = state;
+    }
+
+/**
+ * Finds the reaction with the minimum delay in the simulation.
+ * @return A pointer to the Reaction object with the minimum delay. If no reactions are present, returns nullptr.
+ */
+    Reaction *Simulation::find_min_delay_reaction() {
+        // Check if there are no reactions
+        if (reactions.empty()) {
+            std::cout << "No valid reaction found" << std::endl;
+        }
+
+        // Use std::min_element to find the reaction with the minimum delay
+        // This = sign is to capture the value of the pointer returned by min_element
+        auto min_reaction_iter = std::min_element(reactions.begin(), reactions.end(),
+                                                  [this](const Reaction &r1, const Reaction &r2) {
+                                                      return compute_delay(r1) < compute_delay(r2);
+                                                  }
+        );
+
+        // Return a pointer to the reaction with the minimum delay
+        return &(*min_reaction_iter);
+    }
+
+/**
+ * Updates the quantities of reactants and products for a given reaction.
+ * @param min_reaction A pointer to the reaction for which the quantities of reactants and products are to be updated.
+ */
+    void Simulation::update_reaction(Reaction *min_reaction) {
+        // Check if all reactants have a quantity greater than 0
+        if (std::all_of(min_reaction->reactants.begin(), min_reaction->reactants.end(), [](Molecule m) {
+            return m.get_quantity() > 0;
+        })) {
+            for (auto &reactant: min_reaction->reactants) {
+                reactant -= 1;
+            }
+            for (auto &product: min_reaction->products) {
+                product += 1;
+            }
+        }
+    }
+
+/**
+ * @brief Simulates the reactions until a specified end time.
+
+ * @param end_time The end time of the simulation.
+ * @param state The initial state of the molecules.
+ */
+    void Simulation::simulate(double end_time, const std::vector<Molecule> &initial_state) {
+    double t = 0; // Initialize the current time to 0
+    state = initial_state; // Initialize the state with the initial state
+
+    // Continue the simulation until the current time exceeds the end time
+    while (t <= end_time) {
+        // Find the reaction with the minimum delay
+        Reaction *min_reaction = find_min_delay_reaction();
+
+        // Update the current time
+        t += compute_delay(*min_reaction);
+
+        // Update the quantities of reactants and products for the selected reaction
+        update_reaction(min_reaction);
+
+        // Update the state with the new quantities of the molecules
+        for (auto &molecule : state) {
+            for (const auto &reactant : min_reaction->reactants) {
+                if (molecule.get_name() == reactant.get_name()) {
+                    molecule.set_quantity(reactant.get_quantity());
+                }
+            }
+            // Update the quantity of the molecule if it is a product of the reaction
+            for (const auto &product : min_reaction->products) {
+                if (molecule.get_name() == product.get_name()) {
+                    molecule.set_quantity(product.get_quantity());
+                }
+            }
+        }
+
+        // Print the current state of the simulation
+        for (const auto &molecule: state) {
+            std::cout << "Molecule: " << molecule.get_name() << ", Quantity: " << molecule.get_quantity()
+                      << std::endl;
+        }
+    }
 }
 
+    /**
+ * Computes the delay for a given reaction.
+ * The delay is calculated as a random number from an exponential distribution with lambda as the parameter.
+ * Lambda is calculated as the product of the rate of the reaction and the product of the quantities of all reactants.
+ *
+ * @param reaction The reaction for which the delay is to be calculated.
+ * @return The calculated delay.
+ */
+    double Simulation::compute_delay(const Reaction &reaction) {
+        // Create a random number generator
+        std::default_random_engine generator;
+
+        // Get the rate of the reaction
+        double rate = reaction.get_rate();
+
+        // Calculate the product of the quantities of all reactants
+        double product_of_quantities = std::accumulate(
+                reaction.reactants.begin(),
+                reaction.reactants.end(),
+                1.0, // Start the accumulation with 1.0
+                [](double acc, Molecule m) {
+                    // For each reactant, multiply the accumulated value by the quantity of the reactant
+                    return acc * m.get_quantity();
+                }
+        );
+
+        // Calculate lambda as rate times the product of quantities
+        double lambda = rate * product_of_quantities;
+
+        // Create an exponential distribution with lambda as the parameter
+        std::exponential_distribution<double> distribution(lambda);
+
+        // Generate a random number from the distribution
+        double delay = distribution(generator);
+
+        return delay;
+    }
+
+
+#pragma endregion Simulation
+
+}
 
