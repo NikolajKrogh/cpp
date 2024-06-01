@@ -54,31 +54,7 @@ int main() {
 
     stochastic_simulation_library::SymbolTable<std::string, double> symbolTable;
 
-    // Insert some key-value pairs
-    symbolTable.insert("DA", 1);
-    symbolTable.insert("D_A", 0);
-    symbolTable.insert("DR", 1);
-    symbolTable.insert("D_R", 0);
-    symbolTable.insert("MA", 0);
-    symbolTable.insert("MR", 0);
-    symbolTable.insert("A", 1);
-    symbolTable.insert("R", 0);
-    symbolTable.insert("C", 0);
-
-    // Check if a key exists
-    if (symbolTable.contains("DA")) {
-        std::cout << "DA exists in the symbol table." << std::endl;
-    } else {
-        std::cout << "DA does not exist in the symbol table." << std::endl;
-    }
-
-    // Get the value associated with a key
-    double value = symbolTable.get("DR");
-    std::cout << "The value of DR is " << value << std::endl;
-
-    // Try to insert a key that already exists
-    symbolTable.insert("DA", 1);
-
+    symbolTable.testSymbolTable();
 
     return 0;
 }

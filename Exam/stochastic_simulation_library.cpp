@@ -360,7 +360,9 @@ namespace stochastic_simulation_library {
     void SymbolTable<K, V>::insert(K key, V value) {
         // If it is pointing to the end of the table, the key does not exist in the table
         if (table.find(key) != table.end()) {
-            throw std::runtime_error("Symbol already exists in the table");
+            std::cout << "Symbol already exists in the table" << std::endl;
+        }else{
+            std::cout << "Symbol" << key << " inserted into the table" << std::endl;
         }
         table[key] = value;
     }
@@ -371,7 +373,7 @@ namespace stochastic_simulation_library {
     template<typename K, typename V>
     V SymbolTable<K, V>::get(K key) {
         if (table.find(key) == table.end()) {
-            throw std::runtime_error("Symbol not found in the table");
+            std::cout << "Symbol not found in the table" << std::endl;
         }
         return table[key];
     }
@@ -383,6 +385,10 @@ namespace stochastic_simulation_library {
     bool SymbolTable<K, V>::contains(K key) {
         return table.find(key) != table.end();
     }
+
+    // Explicit instantiation of the SymbolTable class to avoid linker errors
+    template
+    class stochastic_simulation_library::SymbolTable<std::string, double>;
 
 #pragma region Test Symbol Table
 
@@ -411,7 +417,7 @@ namespace stochastic_simulation_library {
 
         // Get the value associated with a key
         double value = symbolTable.get("DR");
-        std::cout << "The value of DR is " << value << std::endl;
+        std::cout << "The value of DR is: " << value << std::endl;
 
         // Try to insert a key that already exists
         symbolTable.insert("DA", 1);
