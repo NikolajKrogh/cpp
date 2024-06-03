@@ -176,6 +176,7 @@ namespace stochastic_simulation_library {
     Molecule Vessel::add(std::string name, double quantity) {
         auto m = Molecule(name, quantity);
         molecules.push_back(m);
+
         return m;
     }
 
@@ -440,10 +441,9 @@ namespace stochastic_simulation_library {
 
 #pragma region Simulation
 
-    stochastic_simulation_library::Simulation::Simulation(const std::vector<Reaction> &reactions, double end_time,
+    stochastic_simulation_library::Simulation::Simulation(const std::vector<Reaction> &reactions,
                                                           const std::vector<Molecule> &state) {
         this->reactions = reactions;
-        this->end_time = end_time;
         this->state = state;
     }
 
@@ -469,23 +469,6 @@ namespace stochastic_simulation_library {
         return &(*min_reaction_iter);
     }
 
-///**
-// * Updates the quantities of reactants and products for a given reaction.
-// * @param min_reaction A pointer to the reaction for which the quantities of reactants and products are to be updated.
-// */
-//    void Simulation::update_reaction(Reaction *min_reaction) {
-//        // Check if all reactants have a quantity greater than 0
-//        if (std::all_of(min_reaction->reactants.begin(), min_reaction->reactants.end(), [](Molecule m) {
-//            return m.get_quantity() > 0;
-//        })) {
-//            for (auto &reactant: min_reaction->reactants) {
-//                reactant -= 1;
-//            }
-//            for (auto &product: min_reaction->products) {
-//                product += 1;
-//            }
-//        }
-//    }
 
 /**
  * @brief Simulates the reactions until a specified end time.
@@ -504,28 +487,40 @@ namespace stochastic_simulation_library {
 
             // Update the current time
             t += compute_delay(*min_reaction);
-
-
-            // Update the state with the new quantities of the molecules
+            bool all_reactants_present = true;
+            //Check if all the reactants are present
             for (auto &molecule: state) {
                 for (const auto &reactant: min_reaction->reactants) {
                     if (molecule.get_name() == reactant.get_name()) {
-                        molecule.set_quantity(molecule.get_quantity() - 1);
-                    }
-                }
-                // Update the quantity of the molecule if it is a product of the reaction
-                for (const auto &product: min_reaction->products) {
-                    if (molecule.get_name() == product.get_name()) {
-                        molecule.set_quantity(molecule.get_quantity() + 1);
+                        if (molecule.get_quantity() == 0) {
+                            all_reactants_present = false;
+                        }
+                        if (!all_reactants_present) {
+
+                            // Update the state with the new quantities of the molecules
+                            for (auto &molecule: state) {
+                                for (const auto &reactant: min_reaction->reactants) {
+                                    if (molecule.get_name() == reactant.get_name()) {
+                                        molecule.set_quantity(molecule.get_quantity() - 1);
+                                    }
+                                }
+                                // Update the quantity of the molecule if it is a product of the reaction
+                                for (const auto &product: min_reaction->products) {
+                                    if (molecule.get_name() == product.get_name()) {
+                                        molecule.set_quantity(molecule.get_quantity() + 1);
+                                    }
+                                }
+                            }
+                        }
+                        //Print the current state of the simulation
+                        for (const auto &molecule: state) {
+                            std::cout << "Molecule: " << molecule.get_name() << ", Quantity: "
+                                      << molecule.get_quantity()
+                                      << std::endl;
+                        }
                     }
                 }
             }
-
-            // Print the current state of the simulation
-//            for (const auto &molecule: state) {
-//                std::cout << "Molecule: " << molecule.get_name() << ", Quantity: " << molecule.get_quantity()
-//                          << std::endl;
-//            }
         }
     }
 

@@ -198,18 +198,15 @@ namespace stochastic_simulation_library {
     class Simulation {
     private:
         std::vector<Reaction> reactions;
-        double end_time;
-        std::vector<Molecule> state;
     public:
-        Simulation(const std::vector<Reaction> &reactions, double end_time, const std::vector<Molecule> &state);
+        std::vector<Molecule> state;
+        Simulation(const std::vector<Reaction> &reactions, const std::vector<Molecule> &state);
 
         ~Simulation() = default;
 
         double compute_delay(const Reaction &reaction);
 
         Reaction *find_min_delay_reaction();
-
-        void update_reaction(Reaction *min_reaction);
 
         void simulate(double end_time, const std::vector<Molecule> &state);
 

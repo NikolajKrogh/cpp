@@ -69,14 +69,16 @@ int main() {
 
     reaction.set_name("A + C -> B + C");
     std::cout << "Reaction running:" << reaction.get_name() << std::endl;
+
     // Create a Simulation object with the reaction, end time, and initial state
     std::vector<stochastic_simulation_library::Reaction> reactions = {reaction};
     std::vector<stochastic_simulation_library::Molecule> state = {X,Y,Z};
-    stochastic_simulation_library::Simulation simulation(reactions, 200000, state);
-
+    stochastic_simulation_library::Simulation simulation(reactions, state);
 
     // Run the simulation
-    simulation.simulate(2000, state);
+    simulation.simulate(200000, state);
+
+
 
 
     return 0;
