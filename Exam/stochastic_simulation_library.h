@@ -185,6 +185,8 @@ namespace stochastic_simulation_library {
 
         bool contains(K key);
 
+        void update(K key, V value);
+
         void testSymbolTable();
     };
 

@@ -392,6 +392,14 @@ namespace stochastic_simulation_library {
     template
     class stochastic_simulation_library::SymbolTable<std::string, double>;
 
+    template<typename K, typename V>
+    void SymbolTable<K, V>::update(K key, V value) {
+        if (!contains(key)) {
+            std::cout << "Key not found" << std::endl;
+        }
+        table[key] = value;
+    }
+
 #pragma region Test Symbol Table
 
     template<typename K, typename V>
@@ -461,23 +469,23 @@ namespace stochastic_simulation_library {
         return &(*min_reaction_iter);
     }
 
-/**
- * Updates the quantities of reactants and products for a given reaction.
- * @param min_reaction A pointer to the reaction for which the quantities of reactants and products are to be updated.
- */
-    void Simulation::update_reaction(Reaction *min_reaction) {
-        // Check if all reactants have a quantity greater than 0
-        if (std::all_of(min_reaction->reactants.begin(), min_reaction->reactants.end(), [](Molecule m) {
-            return m.get_quantity() > 0;
-        })) {
-            for (auto &reactant: min_reaction->reactants) {
-                reactant -= 1;
-            }
-            for (auto &product: min_reaction->products) {
-                product += 1;
-            }
-        }
-    }
+///**
+// * Updates the quantities of reactants and products for a given reaction.
+// * @param min_reaction A pointer to the reaction for which the quantities of reactants and products are to be updated.
+// */
+//    void Simulation::update_reaction(Reaction *min_reaction) {
+//        // Check if all reactants have a quantity greater than 0
+//        if (std::all_of(min_reaction->reactants.begin(), min_reaction->reactants.end(), [](Molecule m) {
+//            return m.get_quantity() > 0;
+//        })) {
+//            for (auto &reactant: min_reaction->reactants) {
+//                reactant -= 1;
+//            }
+//            for (auto &product: min_reaction->products) {
+//                product += 1;
+//            }
+//        }
+//    }
 
 /**
  * @brief Simulates the reactions until a specified end time.
@@ -486,42 +494,40 @@ namespace stochastic_simulation_library {
  * @param state The initial state of the molecules.
  */
     void Simulation::simulate(double end_time, const std::vector<Molecule> &initial_state) {
-    double t = 0; // Initialize the current time to 0
-    state = initial_state; // Initialize the state with the initial state
+        double t = 0; // Initialize the current time to 0
+        state = initial_state; // Initialize the state with the initial state
 
-    // Continue the simulation until the current time exceeds the end time
-    while (t <= end_time) {
-        // Find the reaction with the minimum delay
-        Reaction *min_reaction = find_min_delay_reaction();
+        // Continue the simulation until the current time exceeds the end time
+        while (t <= end_time) {
+            // Find the reaction with the minimum delay
+            Reaction *min_reaction = find_min_delay_reaction();
 
-        // Update the current time
-        t += compute_delay(*min_reaction);
+            // Update the current time
+            t += compute_delay(*min_reaction);
 
-        // Update the quantities of reactants and products for the selected reaction
-        update_reaction(min_reaction);
 
-        // Update the state with the new quantities of the molecules
-        for (auto &molecule : state) {
-            for (const auto &reactant : min_reaction->reactants) {
-                if (molecule.get_name() == reactant.get_name()) {
-                    molecule.set_quantity(reactant.get_quantity());
+            // Update the state with the new quantities of the molecules
+            for (auto &molecule: state) {
+                for (const auto &reactant: min_reaction->reactants) {
+                    if (molecule.get_name() == reactant.get_name()) {
+                        molecule.set_quantity(molecule.get_quantity() - 1);
+                    }
+                }
+                // Update the quantity of the molecule if it is a product of the reaction
+                for (const auto &product: min_reaction->products) {
+                    if (molecule.get_name() == product.get_name()) {
+                        molecule.set_quantity(molecule.get_quantity() + 1);
+                    }
                 }
             }
-            // Update the quantity of the molecule if it is a product of the reaction
-            for (const auto &product : min_reaction->products) {
-                if (molecule.get_name() == product.get_name()) {
-                    molecule.set_quantity(product.get_quantity());
-                }
-            }
-        }
 
-        // Print the current state of the simulation
-        for (const auto &molecule: state) {
-            std::cout << "Molecule: " << molecule.get_name() << ", Quantity: " << molecule.get_quantity()
-                      << std::endl;
+            // Print the current state of the simulation
+//            for (const auto &molecule: state) {
+//                std::cout << "Molecule: " << molecule.get_name() << ", Quantity: " << molecule.get_quantity()
+//                          << std::endl;
+//            }
         }
     }
-}
 
     /**
  * Computes the delay for a given reaction.
@@ -532,35 +538,20 @@ namespace stochastic_simulation_library {
  * @return The calculated delay.
  */
     double Simulation::compute_delay(const Reaction &reaction) {
-        // Create a random number generator
-        std::default_random_engine generator;
-
-        // Get the rate of the reaction
-        double rate = reaction.get_rate();
-
-        // Calculate the product of the quantities of all reactants
-        double product_of_quantities = std::accumulate(
-                reaction.reactants.begin(),
-                reaction.reactants.end(),
-                1.0, // Start the accumulation with 1.0
-                [](double acc, Molecule m) {
-                    // For each reactant, multiply the accumulated value by the quantity of the reactant
-                    return acc * m.get_quantity();
+        double delay = 1;
+        for (auto reactant: reaction.reactants) {
+            for (auto molecule: state) {
+                if (molecule.get_name() == reactant.get_name()) {
+                    delay *= molecule.get_quantity();
                 }
-        );
-
-        // Calculate lambda as rate times the product of quantities
-        double lambda = rate * product_of_quantities;
-
-        // Create an exponential distribution with lambda as the parameter
-        std::exponential_distribution<double> distribution(lambda);
-
-        // Generate a random number from the distribution
-        double delay = distribution(generator);
-
-        return delay;
+            }
+        }
+        delay *= reaction.get_rate();
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::exponential_distribution<> d(delay);
+        return d(gen);
     }
-
 
 #pragma endregion Simulation
 
