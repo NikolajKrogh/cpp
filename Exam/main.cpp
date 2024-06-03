@@ -56,37 +56,25 @@ int main() {
 
     symbolTable.testSymbolTable();
 
-
-
-    // Create Molecule objects for A, B, and C with the given initial quantities
-    stochastic_simulation_library::Molecule X("A", 100);
-    stochastic_simulation_library::Molecule Y("B", 0);
-    stochastic_simulation_library::Molecule Z("C", 1);
+    auto sim = stochastic_simulation_library::Vessel{"Sim"};
+    const auto X = sim.add("A", 100);
+    const auto Y =sim.add("B", 0);
+    const auto Z = sim.add("C", 1);
 
     // Create a Reaction object that represents the reaction A + C -> B
     stochastic_simulation_library::Reaction reaction;
     reaction.add_reactant({X, Z});
-    reaction.add_product({Y});
+    reaction.add_product({Y,Z});
     reaction.set_rate(0.001); // Set the rate (lambda) of the reaction
-    reaction.set_name("A + C -> B");
 
+    reaction.set_name("A + C -> B + C");
+    std::cout << "Reaction running:" << reaction.get_name() << std::endl;
     // Create a Simulation object with the reaction, end time, and initial state
     std::vector<stochastic_simulation_library::Reaction> reactions = {reaction};
     std::vector<stochastic_simulation_library::Molecule> state = {X,Y,Z};
-    stochastic_simulation_library::Simulation simulation(reactions, 2000, state);
-//std::cout << "Number of reactions: " << reactions.size() << std::endl;
-//    for (const auto& reaction : reactions) {
-//        std::cout << "Reaction: " << reaction.get_name() << ", Rate: " << reaction.get_rate() << std::endl;
-//        std::cout << "Reactants: ";
-//        for (const auto& reactant : reaction.reactants) {
-//            std::cout << reactant.get_name() << " ";
-//        }
-//        std::cout << "\nProducts: ";
-//        for (const auto& product : reaction.products) {
-//            std::cout << product.get_name() << " ";
-//        }
-//        std::cout << "\n";
-//    }
+    stochastic_simulation_library::Simulation simulation(reactions, 200000, state);
+
+
     // Run the simulation
     simulation.simulate(2000, state);
 
