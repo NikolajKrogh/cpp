@@ -67,16 +67,20 @@ int main() {
     reaction.add_product({Y,Z});
     reaction.set_rate(0.001); // Set the rate (lambda) of the reaction
 
-    reaction.set_name("A + C -> B + C");
-    std::cout << "Reaction running:" << reaction.get_name() << std::endl;
+
+    //std::cout << "Reaction running:" << reaction.get_name() << std::endl;
 
     // Create a Simulation object with the reaction, end time, and initial state
     std::vector<stochastic_simulation_library::Reaction> reactions = {reaction};
-    std::vector<stochastic_simulation_library::Molecule> state = {X,Y,Z};
-    stochastic_simulation_library::Simulation simulation(reactions, state);
+    std::vector<stochastic_simulation_library::Molecule> example1 = {X,Y,Z};
+    stochastic_simulation_library::Simulation simulation(reactions, example1);
 
+    std::vector<stochastic_simulation_library::Molecule> example2 = {DA, D_A, DR, D_R, MA, MR, A, R, C};
     // Run the simulation
-    simulation.simulate(200000, state);
+    //simulation.simulate(2000, example1);
+    simulation.simulate(50, example2);
+
+
 
 
 

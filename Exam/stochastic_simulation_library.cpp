@@ -484,7 +484,7 @@ namespace stochastic_simulation_library {
         while (t <= end_time) {
             // Find the reaction with the minimum delay
             Reaction *min_reaction = find_min_delay_reaction();
-
+            std::cout << "Reaction running: " << min_reaction->get_name() << std::endl;
             // Update the current time
             t += compute_delay(*min_reaction);
             bool all_reactants_present = true;
