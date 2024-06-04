@@ -440,10 +440,9 @@ namespace stochastic_simulation_library {
 
 #pragma region Simulation
 
-    stochastic_simulation_library::Simulation::Simulation(const std::vector<Reaction> &reactions, double end_time,
+    stochastic_simulation_library::Simulation::Simulation(const std::vector<Reaction> &reactions,
                                                           const std::vector<Molecule> &state) {
         this->reactions = reactions;
-        this->end_time = end_time;
         this->state = state;
     }
 
@@ -495,8 +494,7 @@ namespace stochastic_simulation_library {
  */
     void Simulation::simulate(double end_time, const std::vector<Molecule> &initial_state) {
         double t = 0; // Initialize the current time to 0
-        state = initial_state; // Initialize the state with the initial state
-
+        bool all_reactants_present = true;
         // Continue the simulation until the current time exceeds the end time
         while (t <= end_time) {
             // Find the reaction with the minimum delay
@@ -522,10 +520,10 @@ namespace stochastic_simulation_library {
             }
 
             // Print the current state of the simulation
-//            for (const auto &molecule: state) {
-//                std::cout << "Molecule: " << molecule.get_name() << ", Quantity: " << molecule.get_quantity()
-//                          << std::endl;
-//            }
+            for (const auto &molecule: state) {
+                std::cout << "Molecule: " << molecule.get_name() << ", Quantity: " << molecule.get_quantity()
+                          << std::endl;
+            }
         }
     }
 
@@ -556,4 +554,3 @@ namespace stochastic_simulation_library {
 #pragma endregion Simulation
 
 }
-

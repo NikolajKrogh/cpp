@@ -198,10 +198,9 @@ namespace stochastic_simulation_library {
     class Simulation {
     private:
         std::vector<Reaction> reactions;
-        double end_time;
         std::vector<Molecule> state;
     public:
-        Simulation(const std::vector<Reaction> &reactions, double end_time, const std::vector<Molecule> &state);
+        Simulation(const std::vector<Reaction> &reactions, const std::vector<Molecule> &state);
 
         ~Simulation() = default;
 
