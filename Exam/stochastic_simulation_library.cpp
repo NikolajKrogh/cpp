@@ -4,6 +4,7 @@
 #include <utility>
 #include <random>
 #include <cmath>
+#include <set>
 #include "stochastic_simulation_library.h"
 
 namespace stochastic_simulation_library {
@@ -12,23 +13,6 @@ namespace stochastic_simulation_library {
     Molecule::Molecule(const std::string &name, double quantity) {
         this->name = name;
         this->quantity = quantity;
-    }
-
-    std::string Molecule::get_name() const {
-        return name;
-    };
-
-    void Molecule::set_name(const std::string &n) {
-        Molecule::name = n;
-    };
-
-
-    double Molecule::get_quantity() const {
-        return quantity;
-    };
-
-    void Molecule::set_quantity(double q) {
-        Molecule::quantity = q;
     }
 
     void Molecule::operator-=(double q) {
@@ -40,26 +24,31 @@ namespace stochastic_simulation_library {
     }
 
     Reaction Molecule::operator+(const Molecule &molecule) const {
-        const auto r = new stochastic_simulation_library::Reaction();
+        auto r = Reaction();
         // Add the current molecule and the molecule passed as an argument as reactants
-        r->add_reactant({*this, molecule});
-        return *r;
+        r.reactants.push_back(*this);
+        r.reactants.push_back((molecule));
+        return r;
     }
 
     Reaction Molecule::operator+(const Reaction &reaction) {
-        const auto r = new stochastic_simulation_library::Reaction();
+        auto r = Reaction();
         // Add the current molecule and the reactants of the reaction passed as an argument as reactants
-        r->add_reactant({*this});
-        r->add_reactant(reaction.reactants);
-        return *r;
+        r.reactants.push_back(*this);
+        for (auto reactant: reaction.reactants) {
+            r.reactants.push_back(reactant);
+        }
+
+
+        return r;
     }
 
     Reaction Molecule::operator>>(double rate) const {
-        auto reaction = new Reaction();
+        auto reaction = Reaction();
         // Add the current molecule as a reactant
-        reaction->add_reactant({*this});
-        reaction->set_rate(rate);
-        return *reaction;
+        reaction.reactants.push_back(*this);
+        reaction.rate = rate;
+        return reaction;
     }
 
 #pragma endregion Molecule
@@ -77,45 +66,6 @@ namespace stochastic_simulation_library {
     Reaction::Reaction() {
     }
 
-    std::string Reaction::get_name() const {
-        return name;
-    };
-
-    void Reaction::set_name(const std::string &n) {
-        Reaction::name = n;
-    };
-
-    double Reaction::get_rate() const {
-        return rate;
-    };
-
-    void Reaction::set_rate(double r) {
-        Reaction::rate = r;
-    };
-
-    void Reaction::add_reactant(std::initializer_list<Molecule> r) {
-        for (auto &molecule: r) {
-            reactants.push_back(molecule);
-        }
-    }
-
-    void Reaction::add_product(std::initializer_list<Molecule> p) {
-        for (auto &molecule: p) {
-            products.push_back(molecule);
-        }
-    }
-
-    void Reaction::add_reactant(const std::vector<Molecule> &r) {
-        for (auto &molecule: r) {
-            reactants.push_back(molecule);
-        }
-    }
-
-    void Reaction::add_product(const std::vector<Molecule> &p) {
-        for (auto &molecule: p) {
-            products.push_back(molecule);
-        }
-    }
 
     Reaction Reaction::operator>>(double r) {
         Reaction::rate = r;
@@ -152,19 +102,6 @@ namespace stochastic_simulation_library {
 
 #pragma region Vessel
 
-    Vessel::Vessel(const std::vector<Molecule> &molecules, const std::vector<Reaction> &reactions) {
-        this->molecules = molecules;
-        this->reactions = reactions;
-    }
-
-    void Vessel::add_molecule(const Molecule &m) {
-        molecules.push_back(m);
-    }
-
-    void Vessel::add_reaction(const Reaction &r) {
-        reactions.push_back(r);
-    }
-
     Vessel::Vessel(const std::string &name) {
         this->name = name;
     }
@@ -173,10 +110,10 @@ namespace stochastic_simulation_library {
         return Environment();
     }
 
-    Molecule Vessel::add(std::string name, double quantity) {
-        auto m = Molecule(name, quantity);
-        molecules.push_back(m);
-        return m;
+    Molecule &Vessel::add(const std::string &name, double quantity) {
+        auto m = new Molecule(name, quantity);
+        molecules.insert(name, m);
+        return *m;
     }
 
     void Vessel::add(const Reaction &reaction) {
@@ -194,7 +131,7 @@ namespace stochastic_simulation_library {
         // Iterate over each reaction
         for (const auto &reaction: reactions) {
             for (auto &reactant: reaction.reactants) {
-                std::cout << reactant.get_name();
+                std::cout << reactant.name;
 
                 // If the reactant is not the last one, print a plus sign
                 if (&reactant != &reaction.reactants.back()) {
@@ -203,7 +140,7 @@ namespace stochastic_simulation_library {
             }
 
             // Print the reaction rate
-            std::cout << " -> " << reaction.get_rate() << " -> ";
+            std::cout << " -> " << reaction.rate << " -> ";
 
             // Print products
             if (reaction.products.empty()) {
@@ -211,7 +148,7 @@ namespace stochastic_simulation_library {
             } else {
                 // If there are products, print each one
                 for (size_t i = 0; i < reaction.products.size(); ++i) {
-                    std::cout << reaction.products[i].get_name();
+                    std::cout << reaction.products[i].name;
                     // If the product is not the last one, print a plus sign
                     if (i != reaction.products.size() - 1) {
                         std::cout << " + ";
@@ -223,86 +160,97 @@ namespace stochastic_simulation_library {
         }
     }
 
-/**
- * Assigns a unique tag to each molecule in the vessel
- */
-    void Vessel::assign_tags_to_molecules() {
-        int count = 0;
-        for (auto &molecule: molecules) {
-            molecule.graphviz_tag = "s" + std::to_string(count);
-            count++;
-        }
-    }
 
-/**
- * iterates over each molecule and each reaction in the vessel.
- * If a molecule is a reactant in a reaction, it creates an Arrow object representing the reaction,
- * with the source being the reactant's Graphviz tag, the target being the Graphviz tags of the products, and the rate being the reaction rate.
- * These Arrow objects are stored in a vector which is returned by the method.
- * @return A vector of Arrow objects representing the reactions in the vessel.
- */
-    std::vector<Arrow> Vessel::create_arrows() {
+    void Vessel::get_digraph() {
+
         std::vector<Arrow> arrows;
-        // Iterate over each molecule
-        for (const auto &molecule: molecules) {
-            // Iterate over each reaction
-            for (const auto &reaction: reactions) {
-                // If the molecule is a reactant in the reaction
-                for (const auto &reactant: reaction.reactants) {
-                    if (reactant.get_name() == molecule.get_name()) {
 
-                        std::vector<std::string> vector_products = {};
-                        for (const auto &product: reaction.products) {
-                            vector_products.push_back(product.get_name());
-                        }
-                        std::vector<std::string> matching_molecule_tags = {};
-                        for (const auto &m: molecules) {
-                            for (const auto p: vector_products) {
-                                // If the name of the current molecule matches the current product name. Add the graphviz tag to the vector
-                                if (m.get_name() == p) {
-                                    matching_molecule_tags.push_back(m.graphviz_tag);
-                                }
-                            }
-                        }
-                        auto arrow = Arrow(molecule.graphviz_tag, matching_molecule_tags, reaction.get_rate());
-                        arrows.push_back(arrow);
-                    }
+        int counter2 = 0;
+        //Assign Graphiz tags to molecules
+
+        SymbolTable<std::string, std::string> table;
+        for (auto &r: reactions) {
+            for (auto &m: r.reactants) {
+                if (!table.contains(m.name)) {
+                    table.insert(m.name, ("s" + std::to_string(counter2++)));
+                }
+            }
+            for (auto &m: r.products) {
+                if (!table.contains(m.name)) {
+                    table.insert(m.name, ("s" + std::to_string(counter2++)));
                 }
             }
         }
-        return arrows;
-    }
+        //loop over all reactions
+        for (const auto &r: reactions) {
+            Arrow arrow = {};
+            std::vector<std::string> reactant_names = {};
+            for (const auto &reactant: r.reactants) {
+                reactant_names.push_back(table.get(reactant.name));
+            }
+            std::vector<std::string> product_names = {};
 
-/**
- * Writes the graph to a file in the DOT language.
- * The file is named output.dot and is written to the root of the project.
- */
-    void Vessel::write_to_file(const std::vector<Arrow> &arrows) {
-        std::ofstream file("/home/krogh/CLionProjects/cpp/Exam/output.dot");
-        file << "digraph {" << std::endl;
-        int count2 = 0;
-        for (const auto &molecule: molecules) {
-            file << molecule.graphviz_tag << "[label=\"" << molecule.get_name()
-                 << "\",shape=\"box\",style=\"filled\",fillcolor=\"cyan\"];" << std::endl;
+            for (const auto &product: r.products) {
+                product_names.push_back(table.get(product.name));
+            }
+            arrow.rate = r.rate;
+            arrow.source = reactant_names;
+            arrow.target = product_names;
+            arrows.push_back(arrow);
         }
+
+        std::ofstream file;
+        std::string path = "/home/krogh/CLionProjects/cpp/Exam/" + name + ".dot";
+        file.open(path);
+        if (!file) {
+            std::cerr << "Unable to open file for writing.\n";
+            return;
+        }
+
+        file << "digraph {\n";
+        int counter = 0;
+        std::set<std::string> u_sets;
+        for (const auto &r: reactions) {
+            for (const auto &reactant: r.reactants) {
+                auto p = u_sets.insert(table.get(reactant.name));
+                if (p.second) {
+                    file << table.get(reactant.name) << "[label=\"" << reactant.name
+                         << R"(",shape="box",style="filled",fillcolor="cyan"];)" << '\n';
+                }
+            }
+
+            for (const auto &product: r.products) {
+                auto p = u_sets.insert(table.get(product.name));
+                if (p.second) {
+                    file << table.get(product.name) << "[label=\"" << product.name
+                         << R"(",shape="box",style="filled",fillcolor="cyan"];)" << '\n';
+                }
+            }
+
+        }
+
+
         for (const auto &arrow: arrows) {
-            file << "r" << count2 << "[label=\"" << arrow.rate
-                 << "\",shape=\"oval\",style=\"filled\",fillcolor=\"yellow\"];" << std::endl;
-            file << arrow.source << "->" << "r" << count2 << std::endl;
+            file << "r" << counter << "[label=\"" << arrow.rate
+                 << R"(",shape="oval",style="filled",fillcolor="yellow"];)"
+                 << '\n';
+            for (const auto &src: arrow.source) {
+                file << src << " -> " << "r" << counter << ";\n";
+            }
 
             for (const auto &target: arrow.target) {
-                file << "r" << count2 << "->" << target << std::endl;
+                file << "r" << counter << " -> " << target << ";\n";
             }
-            count2++;
+            counter++;
         }
-        file << "}" << std::endl;
-        file.close();
-    }
 
-    void Vessel::network_graph() {
-        assign_tags_to_molecules();
-        std::vector<Arrow> arrows = create_arrows();
-        write_to_file(arrows);
+        file << "}\n";
+        file.close();
+
+        std::string command =
+                "dot -Tpng " + path + " -o /home/krogh/CLionProjects/cpp/Exam/" +
+                name + ".png";
+        system(command.c_str());
     }
 
 #pragma endregion Vessel
@@ -324,18 +272,20 @@ namespace stochastic_simulation_library {
  * @param tgt A vector of target molecules' Graphviz tags, represented as strings.
  * @param r The rate of the reaction, represented as a double.
  */
-    Arrow::Arrow(std::string src, std::vector<std::string> tgt, double r) {
+    Arrow::Arrow(std::vector<std::string> src, std::vector<std::string> tgt, double r) {
 
         // Using std::move to avoid copying the string
-        source = std::move(src);
+        for (auto &s: src) {
+            this->source.push_back(s);
+        }
 
         // Iterating over the target vector and adding each target to the Arrow's target vector
         for (auto &t: tgt) {
-            target.push_back(t);
+            this->target.push_back(t);
         }
 
         // Setting the rate of the Arrow (reaction)
-        rate = r;
+        this->rate = r;
     }
 
 #pragma endregion Arrow
@@ -388,6 +338,7 @@ namespace stochastic_simulation_library {
         return table.find(key) != table.end();
     }
 
+
     // Explicit instantiation of the SymbolTable class to avoid linker errors
     template
     class stochastic_simulation_library::SymbolTable<std::string, double>;
@@ -432,133 +383,54 @@ namespace stochastic_simulation_library {
 
 #pragma region Simulation
 
-    stochastic_simulation_library::Simulation::Simulation(const std::vector<Reaction> &reactions, double end_time,
-                                                          const std::vector<Molecule> &state) {
-        this->reactions = reactions;
-        this->end_time = end_time;
-        this->state = state;
-    }
-
-/**
- * Finds the reaction with the minimum delay in the simulation.
- * @return A pointer to the Reaction object with the minimum delay. If no reactions are present, returns nullptr.
- */
-    Reaction *Simulation::find_min_delay_reaction() {
-        // Check if there are no reactions
-        if (reactions.empty()) {
-            std::cout << "No valid reaction found" << std::endl;
-        }
-
-        // Use std::min_element to find the reaction with the minimum delay
-        // This = sign is to capture the value of the pointer returned by min_element
-        auto min_reaction_iter = std::min_element(reactions.begin(), reactions.end(),
-                                                  [this](const Reaction &r1, const Reaction &r2) {
-                                                      return compute_delay(r1) < compute_delay(r2);
-                                                  }
-        );
-
-        // Return a pointer to the reaction with the minimum delay
-        return &(*min_reaction_iter);
-    }
-
-/**
- * Updates the quantities of reactants and products for a given reaction.
- * @param min_reaction A pointer to the reaction for which the quantities of reactants and products are to be updated.
- */
-    void Simulation::update_reaction(Reaction *min_reaction) {
-        // Check if all reactants have a quantity greater than 0
-        if (std::all_of(min_reaction->reactants.begin(), min_reaction->reactants.end(), [](Molecule m) {
-            return m.get_quantity() > 0;
-        })) {
-            for (auto &reactant: min_reaction->reactants) {
-                reactant -= 1;
+    double
+    compute_delay(stochastic_simulation_library::Vessel &vessel, stochastic_simulation_library::Reaction &reaction) {
+        double product = 1;
+        for (const auto &reactant: reaction.reactants) {
+            if (vessel.molecules.get(reactant.name)->quantity <= 0) {
+                return std::numeric_limits<double>::infinity();
             }
-            for (auto &product: min_reaction->products) {
-                product += 1;
-            }
+            product *= vessel.molecules.get(reactant.name)->quantity;
         }
+        double rate = reaction.rate * product;
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::exponential_distribution<> d(rate);
+        return d(gen);
     }
 
-/**
- * @brief Simulates the reactions until a specified end time.
-
- * @param end_time The end time of the simulation.
- * @param state The initial state of the molecules.
- */
-    void Simulation::simulate(double end_time, const std::vector<Molecule> &initial_state) {
-    double t = 0; // Initialize the current time to 0
-    state = initial_state; // Initialize the state with the initial state
-
-    // Continue the simulation until the current time exceeds the end time
-    while (t <= end_time) {
-        // Find the reaction with the minimum delay
-        Reaction *min_reaction = find_min_delay_reaction();
-
-        // Update the current time
-        t += compute_delay(*min_reaction);
-
-        // Update the quantities of reactants and products for the selected reaction
-        update_reaction(min_reaction);
-
-        // Update the state with the new quantities of the molecules
-        for (auto &molecule : state) {
-            for (const auto &reactant : min_reaction->reactants) {
-                if (molecule.get_name() == reactant.get_name()) {
-                    molecule.set_quantity(reactant.get_quantity());
+    void Simulation::simulate(Vessel &vessel, double end_time) {
+        double time = 0;
+        while (time <= end_time) {
+            for (auto &reaction: vessel.reactions) {
+                reaction.delay = compute_delay(vessel, reaction);
+            }
+            double min_delay = std::numeric_limits<double>::infinity();
+            stochastic_simulation_library::Reaction min_delay_reaction = Reaction();
+            for (auto &reaction: vessel.reactions) {
+                if (reaction.delay < min_delay) {
+                    min_delay = reaction.delay;
+                    min_delay_reaction = reaction;
                 }
             }
-            // Update the quantity of the molecule if it is a product of the reaction
-            for (const auto &product : min_reaction->products) {
-                if (molecule.get_name() == product.get_name()) {
-                    molecule.set_quantity(product.get_quantity());
+            time += min_delay;
+            bool is_present = true;
+            for (const auto &reactant: min_delay_reaction.reactants) {
+                if (vessel.molecules.get(reactant.name)->quantity <= 0) {
+                    is_present = false;
+                    break;
                 }
             }
+            if (!is_present) {
+                continue;
+            }
+            for (const auto &reactant: min_delay_reaction.reactants) {
+                vessel.molecules.get(reactant.name)->quantity -= 1;
+            }
+            for (const auto &product: min_delay_reaction.products) {
+                vessel.molecules.get(product.name)->quantity += 1;
+            }
         }
-
-        // Print the current state of the simulation
-        for (const auto &molecule: state) {
-            std::cout << "Molecule: " << molecule.get_name() << ", Quantity: " << molecule.get_quantity()
-                      << std::endl;
-        }
-    }
-}
-
-    /**
- * Computes the delay for a given reaction.
- * The delay is calculated as a random number from an exponential distribution with lambda as the parameter.
- * Lambda is calculated as the product of the rate of the reaction and the product of the quantities of all reactants.
- *
- * @param reaction The reaction for which the delay is to be calculated.
- * @return The calculated delay.
- */
-    double Simulation::compute_delay(const Reaction &reaction) {
-        // Create a random number generator
-        std::default_random_engine generator;
-
-        // Get the rate of the reaction
-        double rate = reaction.get_rate();
-
-        // Calculate the product of the quantities of all reactants
-        double product_of_quantities = std::accumulate(
-                reaction.reactants.begin(),
-                reaction.reactants.end(),
-                1.0, // Start the accumulation with 1.0
-                [](double acc, Molecule m) {
-                    // For each reactant, multiply the accumulated value by the quantity of the reactant
-                    return acc * m.get_quantity();
-                }
-        );
-
-        // Calculate lambda as rate times the product of quantities
-        double lambda = rate * product_of_quantities;
-
-        // Create an exponential distribution with lambda as the parameter
-        std::exponential_distribution<double> distribution(lambda);
-
-        // Generate a random number from the distribution
-        double delay = distribution(generator);
-
-        return delay;
     }
 
 
