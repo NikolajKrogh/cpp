@@ -4,5 +4,18 @@ project(Exam)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Exam main.cpp
-        stochastic_simulation_library.cpp
-        stochastic_simulation_library.h)
+        ParallelSimulation.h
+        Simulation.cpp
+        Simulation.h
+        Vessel.cpp
+        Vessel.h
+        SymbolTable.h
+        Arrow.cpp
+        Arrow.h
+        Environment.cpp
+        Environment.h
+        Reaction.cpp
+        Reaction.h
+        Molecule.cpp
+        Molecule.h
+)

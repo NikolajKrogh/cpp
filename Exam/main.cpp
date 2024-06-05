@@ -1,9 +1,11 @@
 #include <iostream>
 #include <thread>
 #include <cmath>
-#include "stochastic_simulation_library.h"
+#include "Vessel.h"
+#include "Simulation.h"
+#include "ParallelSimulation.h"
 
-stochastic_simulation_library::Vessel simulation_circadian_rhythm() {
+stochastic::Vessel simulation_circadian_rhythm() {
     const auto alphaA = 50;
     const auto alpha_A = 500;
     const auto alphaR = 0.01;
@@ -21,7 +23,7 @@ stochastic_simulation_library::Vessel simulation_circadian_rhythm() {
     const auto thetaR = 100;
 
 
-    auto v = stochastic_simulation_library::Vessel{"Circadian Rhythm"};
+    auto v = stochastic::Vessel{"Circadian Rhythm"};
     const auto env = v.environment();
     const auto DA = v.add("DA", 1);
     const auto D_A = v.add("D_A", 0);
@@ -53,8 +55,8 @@ stochastic_simulation_library::Vessel simulation_circadian_rhythm() {
     return v;
 };
 
-stochastic_simulation_library::Vessel simulation_covid19(uint32_t N) {
-    auto v = stochastic_simulation_library::Vessel{"COVID19 SEIHR: " + std::to_string(N)};
+stochastic::Vessel simulation_covid19(uint32_t N) {
+    auto v = stochastic::Vessel{"COVID19 SEIHR: " + std::to_string(N)};
     const auto eps = 0.0009; // initial fraction of infectious
     const auto I0 = size_t(std::round(eps * N)); // initial infectious
     const auto E0 = size_t(std::round(eps * N * 15)); // initial exposed
@@ -81,8 +83,8 @@ stochastic_simulation_library::Vessel simulation_covid19(uint32_t N) {
 
 }
 
-stochastic_simulation_library::Vessel simulation_example1() {
-    auto v = stochastic_simulation_library::Vessel{"Example 1"};
+stochastic::Vessel simulation_example1() {
+    auto v = stochastic::Vessel{"Example 1"};
     const auto env = v.environment();
     const auto A = v.add("A", 100);
     const auto B = v.add("B", 0);
@@ -94,8 +96,8 @@ stochastic_simulation_library::Vessel simulation_example1() {
     return v;
 }
 
-stochastic_simulation_library::Vessel simulation_example2() {
-    auto v = stochastic_simulation_library::Vessel{"Example 2"};
+stochastic::Vessel simulation_example2() {
+    auto v = stochastic::Vessel{"Example 2"};
     const auto env = v.environment();
     const auto A = v.add("A", 100);
     const auto B = v.add("B", 0);
@@ -108,8 +110,8 @@ stochastic_simulation_library::Vessel simulation_example2() {
     return v;
 }
 
-stochastic_simulation_library::Vessel simulation_example3() {
-    auto v = stochastic_simulation_library::Vessel{"Example 3"};
+stochastic::Vessel simulation_example3() {
+    auto v = stochastic::Vessel{"Example 3"};
     const auto env = v.environment();
     const auto A = v.add("A", 50);
     const auto B = v.add("B", 50);
@@ -152,7 +154,7 @@ void pretty_print_circadian_rhythm() {
     const auto thetaR = 100;
 
 
-    auto v = stochastic_simulation_library::Vessel{"Circadian_Rhythm"};
+    auto v = stochastic::Vessel{"Circadian_Rhythm"};
     const auto env = v.environment();
     const auto DA = v.add("DA", 1);
     const auto D_A = v.add("D_A", 0);
@@ -186,7 +188,7 @@ void pretty_print_circadian_rhythm() {
 
 int main() {
 
-//    stochastic_simulation_library::SymbolTable<std::string, double> symbolTable;
+//    stochastic::SymbolTable<std::string, double> symbolTable;
 //    symbolTable.testSymbolTable();
 
 //    pretty_print_circadian_rhythm();
@@ -200,10 +202,10 @@ int main() {
     auto vessel3 = simulation_example1();
     auto vessel4 = simulation_example2();
     auto vessel5 = simulation_example3();
-    std::string path = stochastic_simulation_library::Simulation::assign_unique_filename(vessel1.name);
+    std::string path = stochastic::Simulation::assign_unique_filename(vessel1.name);
 
-    //stochastic_simulation_library::Simulation::simulate(path, vessel, 1000);
-    stochastic_simulation_library::ParallelSimulation::parallalize_simulations(
+    //stochastic::Simulation::simulate(path, vessel, 1000);
+    stochastic::ParallelSimulation::parallelize_simulations(
             {vessel1, vessel2, vessel3, vessel4, vessel5}, 100);
 
     return 0;

@@ -82,13 +82,49 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Arrow.cpp">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Arrow.h">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Environment.cpp">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Environment.h">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Molecule.cpp">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Molecule.h">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/ParallelSimulation.h">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Reaction.cpp">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Reaction.h">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Simulation.cpp">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Simulation.h">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/SymbolTable.h">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Vessel.cpp">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Vessel.h">
+			<Option target="Exam"/>
+		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/main.cpp">
-			<Option target="Exam"/>
-		</Unit>
-		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/stochastic_simulation_library.cpp">
-			<Option target="Exam"/>
-		</Unit>
-		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/stochastic_simulation_library.h">
 			<Option target="Exam"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/CMakeLists.txt">
