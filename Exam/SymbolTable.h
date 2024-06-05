@@ -21,16 +21,6 @@ namespace stochastic {
 
 
 
-/**
- * Inserts a new key-value pair into the symbol table.
- * If the key already exists in the table, it throws a runtime error.
- *
- * @tparam K The type of the key.
- * @tparam V The type of the value.
- * @param key The key of the new element.
- * @param value The value of the new element.
- * @throws std::runtime_error if the key already exists in the table.
- */
 
         void insert(K key, V value) {
             // If it is pointing to the end of the table, the key does not exist in the table
@@ -46,12 +36,14 @@ namespace stochastic {
  * Gets the value associated with the given key.
  */
 
-        V get(K key) {
-            if (table.find(key) == table.end()) {
-                std::cout << "Symbol not found in the table" << std::endl;
-            }
-            return table[key];
-        }
+        V get(const K& key) const {
+    auto it = table.find(key);
+    if (it == table.end()) {
+        std::cout << "Symbol not found in the table" << std::endl;
+        throw std::out_of_range("Key not found in SymbolTable");
+    }
+    return it->second;
+}
 
 /**
  * Checks if the symbol table contains the given key.

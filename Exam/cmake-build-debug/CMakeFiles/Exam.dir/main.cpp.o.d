@@ -228,5 +228,6 @@ CMakeFiles/Exam.dir/main.cpp.o: \
  /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h \
  /usr/include/c++/11/bits/erase_if.h \
+ /home/krogh/CLionProjects/cpp/Exam/Arrow.h \
  /home/krogh/CLionProjects/cpp/Exam/Simulation.h \
  /home/krogh/CLionProjects/cpp/Exam/ParallelSimulation.h

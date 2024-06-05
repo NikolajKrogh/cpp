@@ -3,19 +3,20 @@ project(Exam)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Exam main.cpp
-        ParallelSimulation.h
-        Simulation.cpp
-        Simulation.h
-        Vessel.cpp
-        Vessel.h
-        SymbolTable.h
+add_executable(Exam
         Arrow.cpp
         Arrow.h
         Environment.cpp
         Environment.h
-        Reaction.cpp
-        Reaction.h
+        main.cpp
         Molecule.cpp
         Molecule.h
+        ParallelSimulation.h
+        Reaction.cpp
+        Reaction.h
+        Simulation.cpp
+        Simulation.h
+        SymbolTable.h
+        Vessel.cpp
+        Vessel.h
 )

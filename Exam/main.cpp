@@ -192,21 +192,22 @@ int main() {
 //    symbolTable.testSymbolTable();
 
 //    pretty_print_circadian_rhythm();
+
 //    simulation_circadian_rhythm();
 //    simulation_covid19(10000);
 //    simulation_example1();
 //    simulation_example2();
 //    simulation_example3();
-    auto vessel1 = simulation_covid19(10000);
-    auto vessel2 = simulation_circadian_rhythm();
-    auto vessel3 = simulation_example1();
-    auto vessel4 = simulation_example2();
-    auto vessel5 = simulation_example3();
-    std::string path = stochastic::Simulation::assign_unique_filename(vessel1.name);
-
-    //stochastic::Simulation::simulate(path, vessel, 1000);
-    stochastic::ParallelSimulation::parallelize_simulations(
-            {vessel1, vessel2, vessel3, vessel4, vessel5}, 100);
+//    auto vessel1 = simulation_covid19(10000);
+//    auto vessel2 = simulation_circadian_rhythm();
+//    auto vessel3 = simulation_example1();
+//    auto vessel4 = simulation_example2();
+//    auto vessel5 = simulation_example3();
+//    std::string path = stochastic::Simulation::assign_unique_filename(vessel1.name);
+//
+//    //stochastic::Simulation::simulate(path, vessel, 1000);
+//    stochastic::ParallelSimulation::parallelize_simulations(
+//            {vessel1, vessel2, vessel3, vessel4, vessel5}, 100);
 
     return 0;
 }
