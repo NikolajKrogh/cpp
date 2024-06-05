@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <thread>
+
 
 namespace stochastic_simulation_library {
 
@@ -98,7 +100,7 @@ namespace stochastic_simulation_library {
         std::vector<std::string> target;
         double rate;
 
-        Arrow(std::vector<std::string >src, std::vector<std::string> tgt, double r);
+        Arrow(std::vector<std::string> src, std::vector<std::string> tgt, double r);
 
         Arrow() = default;
 
@@ -124,9 +126,9 @@ namespace stochastic_simulation_library {
 
         bool contains(K key);
 
-        std::vector<V> values(){
+        std::vector<V> values() {
             std::vector<V> values;
-            for (const auto &pair: table){
+            for (const auto &pair: table) {
                 values.push_back(pair.second);
             }
             return values;
@@ -142,7 +144,7 @@ namespace stochastic_simulation_library {
 
     class Vessel {
     public:
-        stochastic_simulation_library::SymbolTable<std::string, Molecule*> molecules;
+        stochastic_simulation_library::SymbolTable<std::string, Molecule *> molecules;
         std::vector<Reaction> reactions;
         std::string name;
 
@@ -161,9 +163,9 @@ namespace stochastic_simulation_library {
 
         void get_digraph();
 
-        std::string get_symbol_table_representation(){
+        std::string get_symbol_table_representation() {
             std::string s = "";
-            for (const auto &m : molecules.values()) {
+            for (const auto &m: molecules.values()) {
                 s += ", " + m->name + ": " + std::to_string(m->quantity);
 
             }
@@ -174,14 +176,37 @@ namespace stochastic_simulation_library {
 #pragma endregion Vessel
 
 
-
 #pragma region Simulation
-class Simulation {
-public:
-    static void simulate(Vessel &vessel, double end_time);
-};
+
+    class Simulation {
+    public:
+        static void simulate(const std::string &p,Vessel &vessel, double end_time);
+        static std::string assign_unique_filename(const std::string &name);
+
+    };
+
+
 
 #pragma endregion Simulation
+
+#pragma region Parallelize
+
+    class ParallelSimulation {
+    public:
+        static void parallalize_simulations(std::vector<Vessel> vessels, double T) {
+            std::vector<std::thread> threads;
+
+            for (auto &v: vessels) {
+                std::string path = stochastic_simulation_library::Simulation::assign_unique_filename(v.name);
+                threads.push_back(std::thread(stochastic_simulation_library::Simulation::simulate, path, std::ref(v), T));
+            }
+
+            for (auto &thread: threads) {
+                thread.join();
+            }
+        }
+
+    };
 
 }
 

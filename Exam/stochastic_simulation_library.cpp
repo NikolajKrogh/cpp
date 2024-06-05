@@ -5,6 +5,7 @@
 #include <random>
 #include <cmath>
 #include <set>
+#include <filesystem>
 #include "stochastic_simulation_library.h"
 
 namespace stochastic_simulation_library {
@@ -314,7 +315,7 @@ namespace stochastic_simulation_library {
         if (table.find(key) != table.end()) {
             std::cout << "Symbol already exists in the table" << std::endl;
         } else {
-            std::cout << "Symbol" << key << " inserted into the table" << std::endl;
+            std::cout << "Symbol: " << key << " inserted into the table" << std::endl;
         }
         table[key] = value;
     }
@@ -399,8 +400,16 @@ namespace stochastic_simulation_library {
         return d(gen);
     }
 
-    void Simulation::simulate(Vessel &vessel, double end_time) {
+    void Simulation::simulate(const std::string &p,Vessel &vessel, double end_time) {
         double time = 0;
+        // Open the file in write mode
+        std::ofstream file(p);
+        file << "Time";
+        for (const auto molecule : vessel.molecules.values()) {
+            file << "," << molecule->name;
+        }
+        file << std::endl;
+
         while (time <= end_time) {
             for (auto &reaction: vessel.reactions) {
                 reaction.delay = compute_delay(vessel, reaction);
@@ -430,11 +439,30 @@ namespace stochastic_simulation_library {
             for (const auto &product: min_delay_reaction.products) {
                 vessel.molecules.get(product.name)->quantity += 1;
             }
+            file << time;
+            for (const auto molecule: vessel.molecules.values()) {
+                file << "," << molecule->quantity;
+            }
+            file << std::endl;
         }
+        file.close();
     }
 
+    std::string Simulation::assign_unique_filename(const std::string &name) {
+        int counter = 1;
+        std::string originalPath = "/home/krogh/CLionProjects/cpp/Exam/CsvFiles/" + name + ".csv";
+        while (std::filesystem::exists(originalPath)) {
+            originalPath = "/home/krogh/CLionProjects/cpp/Exam/CsvFiles/" + name + "_" + std::to_string(counter) + ".csv";
+            counter++;
+        }
+        std::ofstream file;
+        file.open(originalPath);
+        file.close();
+        return originalPath;
+    }
 
 #pragma endregion Simulation
+
 
 }
 
