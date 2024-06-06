@@ -1,11 +1,6 @@
-//
-// Created by krogh on 6/5/24.
-//
-
 #include <iostream>
 #include <set>
 #include <fstream>
-#include <memory>
 #include "Vessel.h"
 #include "Arrow.h"
 

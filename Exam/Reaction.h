@@ -1,9 +1,4 @@
-//
-// Created by krogh on 6/5/24.
-//
-
-#ifndef EXAM_REACTION_H
-#define EXAM_REACTION_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -52,4 +47,3 @@ namespace stochastic {
 
 } // stochastic
 
-#endif //EXAM_REACTION_H

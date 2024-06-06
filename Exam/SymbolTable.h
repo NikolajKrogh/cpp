@@ -1,9 +1,4 @@
-//
-// Created by krogh on 6/5/24.
-//
-
-#ifndef EXAM_SYMBOLTABLE_H
-#define EXAM_SYMBOLTABLE_H
+#pragma once
 
 #include <map>
 #include <vector>
@@ -20,74 +15,62 @@ namespace stochastic {
         ~SymbolTable() = default;
 
 
-
-
+        /**
+        * @brief Inserts a key-value pair into the symbol table.
+        *
+        * This function attempts to insert a given key-value pair into the symbol table.
+        * If the key already exists in the table, it prints a message indicating that the symbol already exists.
+        *
+        * @param key The key to insert into the symbol table.
+        * @param value The value to associate with the given key.
+        */
         void insert(K key, V value) {
             // If it is pointing to the end of the table, the key does not exist in the table
             if (table.find(key) != table.end()) {
                 std::cout << "Symbol already exists in the table" << std::endl;
             } else {
                 std::cout << "Symbol: " << key << " inserted into the table" << std::endl;
+                table[key] = value;
             }
-            table[key] = value;
         }
 
 /**
- * Gets the value associated with the given key.
+ * @brief Retrieves the value associated with the given key from the symbol table.
+ *
+ * This function attempts to find the given key in the symbol table.
+ * If the key is found, it returns the associated value.
+ * If the key is not found, it prints an error message .
+ *
+ * @param key The key to search for in the symbol table.
+ * @return The value associated with the given key.
  */
-
-        V get(const K& key) const {
-    auto it = table.find(key);
-    if (it == table.end()) {
-        std::cout << "Symbol not found in the table" << std::endl;
-        throw std::out_of_range("Key not found in SymbolTable");
-    }
-    return it->second;
-}
+        V get(const K &key) const {
+            if (table.find(key) == table.end()) {
+                std::cout << "Symbol not found in the table" << std::endl;
+            }
+            return table.find(key)->second;
+        }
 
 /**
- * Checks if the symbol table contains the given key.
+ * @brief Checks if the symbol table contains the given key.
+ *
+ * @param key The key to check for in the symbol table.
+ * @return True if the key exists in the table, false otherwise.
  */
-
         bool contains(K key) {
             return table.find(key) != table.end();
         }
 
 
-
-#pragma region Test Symbol Table
-
-
-        void testSymbolTable() {
-            // Create a SymbolTable instance
-            stochastic::SymbolTable<std::string, double> symbolTable;
-
-            // Insert some key-value pairs
-            symbolTable.insert("DA", 1);
-            symbolTable.insert("D_A", 0);
-            symbolTable.insert("DR", 1);
-            symbolTable.insert("D_R", 0);
-            symbolTable.insert("MA", 0);
-            symbolTable.insert("MR", 0);
-            symbolTable.insert("A", 1);
-            symbolTable.insert("R", 0);
-            symbolTable.insert("C", 0);
-
-            // Check if a key exists
-            if (symbolTable.contains("DA")) {
-                std::cout << "DA exists in the symbol table." << std::endl;
-            } else {
-                std::cout << "DA does not exist in the symbol table." << std::endl;
-            }
-
-            // Get the value associated with a key
-            double value = symbolTable.get("DR");
-            std::cout << "The value of DR is: " << value << std::endl;
-
-            // Try to insert a key that already exists
-            symbolTable.insert("DA", 1);
-
-        }
+        /**
+        * @brief Retrieves all the values in the symbol table.
+        *
+        * This function iterates over all the key-value pairs in the symbol table,
+        * and collects all the values into a vector. The order of the values in the
+        * vector is the same as the order of the key-value pairs in the symbol table.
+        *
+        * @return A vector containing all the values in the symbol table.
+        */
         std::vector<V> values() {
             std::vector<V> values;
             for (const auto &pair: table) {
@@ -100,5 +83,3 @@ namespace stochastic {
     };
 
 } // stochastic
-
-#endif //EXAM_SYMBOLTABLE_H

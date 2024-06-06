@@ -73,8 +73,8 @@ void Simulation::simulate(const std::string &path, Vessel &vessel, double end_ti
         }
 
         time += min_delay;
-        if (canReact(vessel, min_delay_reaction)) {
-            performReaction(vessel, min_delay_reaction);
+        if (can_react(vessel, min_delay_reaction)) {
+            perform_reaction(vessel, min_delay_reaction);
         }
 
         file << time;
@@ -93,7 +93,7 @@ void Simulation::simulate(const std::string &path, Vessel &vessel, double end_ti
  * @param reaction The reaction that is supposed to occur.
  * @return A boolean value indicating whether the reaction can occur (true) or not (false).
  */
-bool Simulation::canReact(Vessel &vessel, Reaction &reaction) {
+bool Simulation::can_react(Vessel &vessel, Reaction &reaction) {
     for (const auto &reactant: reaction.reactants) {
         if (vessel.molecules.get(reactant.name)->quantity <= 0) {
             return false;
@@ -111,7 +111,7 @@ bool Simulation::canReact(Vessel &vessel, Reaction &reaction) {
  * @param vessel The vessel in which the reaction is occurring.
  * @param reaction The reaction that is being performed.
  */
-    void Simulation::performReaction(Vessel &vessel, Reaction &reaction) {
+    void Simulation::perform_reaction(Vessel &vessel, Reaction &reaction) {
         for (const auto &reactant: reaction.reactants) {
             vessel.molecules.get(reactant.name)->quantity -= 1;
         }

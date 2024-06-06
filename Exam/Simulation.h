@@ -1,7 +1,3 @@
-//
-// Created by krogh on 6/5/24.
-//
-
 #pragma once
 
 #include <string>
@@ -14,9 +10,9 @@ namespace stochastic {
         static void simulate(const std::string &path, Vessel &vessel, double end_time);
         static std::string assign_unique_filename(const std::string &name);
 
-        static bool canReact(Vessel &vessel, Reaction &reaction);
+        static bool can_react(Vessel &vessel, Reaction &reaction);
 
-        static void performReaction(Vessel &vessel, Reaction &reaction);
+        static void perform_reaction(Vessel &vessel, Reaction &reaction);
     };
 } // stochastic
 

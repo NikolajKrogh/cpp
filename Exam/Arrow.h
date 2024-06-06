@@ -1,9 +1,4 @@
-//
-// Created by krogh on 6/5/24.
-//
-
-#ifndef EXAM_ARROW_H
-#define EXAM_ARROW_H
+#pragma once
 
 #include <vector>
 #include <string>
@@ -25,4 +20,4 @@ namespace stochastic {
 
 } // stochastic
 
-#endif //EXAM_ARROW_H
+

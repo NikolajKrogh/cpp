@@ -1,9 +1,4 @@
-//
-// Created by krogh on 6/5/24.
-//
-
-#ifndef EXAM_MOLECULE_H
-#define EXAM_MOLECULE_H
+#pragma once
 
 #include <string>
 #include "Reaction.h"
@@ -35,4 +30,4 @@ namespace stochastic {
 
 } // stochastic
 
-#endif //EXAM_MOLECULE_H
+

@@ -1,9 +1,4 @@
-//
-// Created by krogh on 6/5/24.
-//
-
-#ifndef EXAM_VESSEL_H
-#define EXAM_VESSEL_H
+#pragma once
 
 #include "Reaction.h"
 #include "SymbolTable.h"
@@ -53,4 +48,3 @@ namespace stochastic {
     };
 } // stochastic
 
-#endif //EXAM_VESSEL_H
