@@ -88,11 +88,9 @@ stochastic::Vessel simulation_example1() {
     const auto env = v.environment();
     const auto A = v.add("A", 100);
     const auto B = v.add("B", 0);
-    const auto C = v.add("C", 0);
-    v.add(A >> 0.001 >>= B);
-    v.add(B >> 0.001 >>= C);
-    v.add(C >> 0.001 >>= env);
-
+    const auto C = v.add("C", 1);
+    const auto lambda = 0.001;
+    v.add((A + C) >> lambda >>= B + C);
     return v;
 }
 
@@ -102,9 +100,8 @@ stochastic::Vessel simulation_example2() {
     const auto A = v.add("A", 100);
     const auto B = v.add("B", 0);
     const auto C = v.add("C", 2);
-    v.add(A >> 0.001 >>= B);
-    v.add(B >> 0.001 >>= C);
-    v.add(C >> 0.001 >>= env);
+    const auto lambda = 0.001;
+    v.add((A + C) >> lambda >>= B + C);
 
 
     return v;
@@ -116,24 +113,29 @@ stochastic::Vessel simulation_example3() {
     const auto A = v.add("A", 50);
     const auto B = v.add("B", 50);
     const auto C = v.add("C", 1);
-    v.add(A >> 0.001 >>= B);
-    v.add(B >> 0.001 >>= C);
-    v.add(C >> 0.001 >>= env);
-
+    const auto lambda = 0.001;
+    v.add((A + C) >> lambda >>= B + C);
 
     return v;
 }
+void single_simulation_test() {
+    auto covid19 = simulation_covid19(10000);
+    auto circadian_rhythm = simulation_circadian_rhythm();
+    auto example1 = simulation_example1();
+    auto example2 = simulation_example2();
+    auto example3 = simulation_example3();
+    std::string path = stochastic::Simulation::assign_unique_filename(covid19.name);
+    stochastic::Simulation::simulate(path, covid19, 100);
+}
 
-void parallelize_simulations() {
-    std::vector<std::thread> threads;
-    threads.push_back(std::thread(simulation_circadian_rhythm));
-    threads.push_back(std::thread(simulation_covid19, 10000));
-    threads.push_back(std::thread(simulation_example1));
-    threads.push_back(std::thread(simulation_example2));
-    threads.push_back(std::thread(simulation_example3));
-    for (auto &t: threads) {
-        t.join();
-    }
+void parallel_simulation_test() {
+    auto covid19 = simulation_covid19(10000);
+    auto circadian_rhythm = simulation_circadian_rhythm();
+    auto example1 = simulation_example1();
+    auto example2 = simulation_example2();
+    auto example3 = simulation_example3();
+    stochastic::ParallelSimulation::parallelize_simulations(
+            {example1, example2, example3}, 2000);
 }
 
 void pretty_print_circadian_rhythm() {
@@ -219,25 +221,13 @@ void symbol_table_test() {
 
 int main() {
 
-    symbol_table_test();
+//    symbol_table_test();
 
 //    pretty_print_circadian_rhythm();
 
-//    simulation_circadian_rhythm();
-//    simulation_covid19(10000);
-//    simulation_example1();
-//    simulation_example2();
-//    simulation_example3();
-//    auto vessel1 = simulation_covid19(10000);
-//    auto vessel2 = simulation_circadian_rhythm();
-//    auto vessel3 = simulation_example1();
-//    auto vessel4 = simulation_example2();
-//    auto vessel5 = simulation_example3();
-//    std::string path = stochastic::Simulation::assign_unique_filename(vessel1.name);
-//
-//    //stochastic::Simulation::simulate(path, vessel, 1000);
-//    stochastic::ParallelSimulation::parallelize_simulations(
-//            {vessel1, vessel2, vessel3, vessel4, vessel5}, 100);
 
+//    single_simulation_test();
+
+    parallel_simulation_test();
     return 0;
 }
