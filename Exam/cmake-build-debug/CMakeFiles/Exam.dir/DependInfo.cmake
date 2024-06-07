@@ -13,6 +13,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/krogh/CLionProjects/cpp/Exam/Molecule.cpp" "CMakeFiles/Exam.dir/Molecule.cpp.o" "gcc" "CMakeFiles/Exam.dir/Molecule.cpp.o.d"
   "/home/krogh/CLionProjects/cpp/Exam/Reaction.cpp" "CMakeFiles/Exam.dir/Reaction.cpp.o" "gcc" "CMakeFiles/Exam.dir/Reaction.cpp.o.d"
   "/home/krogh/CLionProjects/cpp/Exam/Simulation.cpp" "CMakeFiles/Exam.dir/Simulation.cpp.o" "gcc" "CMakeFiles/Exam.dir/Simulation.cpp.o.d"
+  "/home/krogh/CLionProjects/cpp/Exam/Tests/DoctestSetup.cpp" "CMakeFiles/Exam.dir/Tests/DoctestSetup.cpp.o" "gcc" "CMakeFiles/Exam.dir/Tests/DoctestSetup.cpp.o.d"
+  "/home/krogh/CLionProjects/cpp/Exam/Tests/SymbolTableTest.cpp" "CMakeFiles/Exam.dir/Tests/SymbolTableTest.cpp.o" "gcc" "CMakeFiles/Exam.dir/Tests/SymbolTableTest.cpp.o.d"
   "/home/krogh/CLionProjects/cpp/Exam/Vessel.cpp" "CMakeFiles/Exam.dir/Vessel.cpp.o" "gcc" "CMakeFiles/Exam.dir/Vessel.cpp.o.d"
   "/home/krogh/CLionProjects/cpp/Exam/main.cpp" "CMakeFiles/Exam.dir/main.cpp.o" "gcc" "CMakeFiles/Exam.dir/main.cpp.o.d"
   )

@@ -1,3 +1,6 @@
+#define DOCTEST_CONFIG_IMPLEMENTWITH_MAIN
+#include "Tests/doctest.h"
+
 #include <iostream>
 #include <thread>
 #include <cmath>
@@ -118,6 +121,7 @@ stochastic::Vessel simulation_example3() {
 
     return v;
 }
+
 void single_simulation_test() {
     auto covid19 = simulation_covid19(10000);
     auto circadian_rhythm = simulation_circadian_rhythm();
@@ -222,12 +226,8 @@ void symbol_table_test() {
 int main() {
 
 //    symbol_table_test();
-
 //    pretty_print_circadian_rhythm();
-
-
 //    single_simulation_test();
-
-    parallel_simulation_test();
+//    parallel_simulation_test();
     return 0;
 }

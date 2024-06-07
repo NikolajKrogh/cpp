@@ -19,4 +19,7 @@ add_executable(Exam
         SymbolTable.h
         Vessel.cpp
         Vessel.h
+
+        Tests/SymbolTableTest.cpp
+        Tests/DoctestSetup.cpp
 )

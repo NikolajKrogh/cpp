@@ -118,6 +118,12 @@
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/SymbolTable.h">
 			<Option target="Exam"/>
 		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Tests/DoctestSetup.cpp">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Tests/SymbolTableTest.cpp">
+			<Option target="Exam"/>
+		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Vessel.cpp">
 			<Option target="Exam"/>
 		</Unit>

@@ -249,6 +249,54 @@ Simulation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Simulation.cpp.s
 .PHONY : Simulation.cpp.s
 
+Tests/DoctestSetup.o: Tests/DoctestSetup.cpp.o
+.PHONY : Tests/DoctestSetup.o
+
+# target to build an object file
+Tests/DoctestSetup.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Tests/DoctestSetup.cpp.o
+.PHONY : Tests/DoctestSetup.cpp.o
+
+Tests/DoctestSetup.i: Tests/DoctestSetup.cpp.i
+.PHONY : Tests/DoctestSetup.i
+
+# target to preprocess a source file
+Tests/DoctestSetup.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Tests/DoctestSetup.cpp.i
+.PHONY : Tests/DoctestSetup.cpp.i
+
+Tests/DoctestSetup.s: Tests/DoctestSetup.cpp.s
+.PHONY : Tests/DoctestSetup.s
+
+# target to generate assembly for a file
+Tests/DoctestSetup.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Tests/DoctestSetup.cpp.s
+.PHONY : Tests/DoctestSetup.cpp.s
+
+Tests/SymbolTableTest.o: Tests/SymbolTableTest.cpp.o
+.PHONY : Tests/SymbolTableTest.o
+
+# target to build an object file
+Tests/SymbolTableTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Tests/SymbolTableTest.cpp.o
+.PHONY : Tests/SymbolTableTest.cpp.o
+
+Tests/SymbolTableTest.i: Tests/SymbolTableTest.cpp.i
+.PHONY : Tests/SymbolTableTest.i
+
+# target to preprocess a source file
+Tests/SymbolTableTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Tests/SymbolTableTest.cpp.i
+.PHONY : Tests/SymbolTableTest.cpp.i
+
+Tests/SymbolTableTest.s: Tests/SymbolTableTest.cpp.s
+.PHONY : Tests/SymbolTableTest.s
+
+# target to generate assembly for a file
+Tests/SymbolTableTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Tests/SymbolTableTest.cpp.s
+.PHONY : Tests/SymbolTableTest.cpp.s
+
 Vessel.o: Vessel.cpp.o
 .PHONY : Vessel.o
 
@@ -321,6 +369,12 @@ help:
 	@echo "... Simulation.o"
 	@echo "... Simulation.i"
 	@echo "... Simulation.s"
+	@echo "... Tests/DoctestSetup.o"
+	@echo "... Tests/DoctestSetup.i"
+	@echo "... Tests/DoctestSetup.s"
+	@echo "... Tests/SymbolTableTest.o"
+	@echo "... Tests/SymbolTableTest.i"
+	@echo "... Tests/SymbolTableTest.s"
 	@echo "... Vessel.o"
 	@echo "... Vessel.i"
 	@echo "... Vessel.s"
