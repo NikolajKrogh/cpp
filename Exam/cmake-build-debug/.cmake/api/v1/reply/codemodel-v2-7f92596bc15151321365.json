@@ -16,7 +16,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -32,7 +33,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -41,15 +43,22 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Exam::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Exam-Debug-5f7efebe49bdd7f237eb.json",
+					"jsonFile" : "target-Exam-Debug-56798c62c3645d6b2190.json",
 					"name" : "Exam",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "SymbolTableTests::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SymbolTableTests-Debug-c8b9041700c3487e76e1.json",
+					"jsonFile" : "target-SymbolTableTests-Debug-f6bb3b32a97485111091.json",
 					"name" : "SymbolTableTests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "VesselTests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-VesselTests-Debug-3b6485e899b9cc8e851a.json",
+					"name" : "VesselTests",
 					"projectIndex" : 0
 				}
 			]

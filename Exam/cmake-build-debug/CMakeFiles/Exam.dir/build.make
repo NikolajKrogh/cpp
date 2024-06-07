@@ -69,10 +69,24 @@ include CMakeFiles/Exam.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Exam.dir/flags.make
 
+CMakeFiles/Exam.dir/main.cpp.o: CMakeFiles/Exam.dir/flags.make
+CMakeFiles/Exam.dir/main.cpp.o: /home/krogh/CLionProjects/cpp/Exam/main.cpp
+CMakeFiles/Exam.dir/main.cpp.o: CMakeFiles/Exam.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Exam.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Exam.dir/main.cpp.o -MF CMakeFiles/Exam.dir/main.cpp.o.d -o CMakeFiles/Exam.dir/main.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/main.cpp
+
+CMakeFiles/Exam.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Exam.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krogh/CLionProjects/cpp/Exam/main.cpp > CMakeFiles/Exam.dir/main.cpp.i
+
+CMakeFiles/Exam.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Exam.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/main.cpp -o CMakeFiles/Exam.dir/main.cpp.s
+
 CMakeFiles/Exam.dir/Arrow.cpp.o: CMakeFiles/Exam.dir/flags.make
 CMakeFiles/Exam.dir/Arrow.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Arrow.cpp
 CMakeFiles/Exam.dir/Arrow.cpp.o: CMakeFiles/Exam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Exam.dir/Arrow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Exam.dir/Arrow.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Exam.dir/Arrow.cpp.o -MF CMakeFiles/Exam.dir/Arrow.cpp.o.d -o CMakeFiles/Exam.dir/Arrow.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/Arrow.cpp
 
 CMakeFiles/Exam.dir/Arrow.cpp.i: cmake_force
@@ -86,7 +100,7 @@ CMakeFiles/Exam.dir/Arrow.cpp.s: cmake_force
 CMakeFiles/Exam.dir/Environment.cpp.o: CMakeFiles/Exam.dir/flags.make
 CMakeFiles/Exam.dir/Environment.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Environment.cpp
 CMakeFiles/Exam.dir/Environment.cpp.o: CMakeFiles/Exam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Exam.dir/Environment.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Exam.dir/Environment.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Exam.dir/Environment.cpp.o -MF CMakeFiles/Exam.dir/Environment.cpp.o.d -o CMakeFiles/Exam.dir/Environment.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/Environment.cpp
 
 CMakeFiles/Exam.dir/Environment.cpp.i: cmake_force
@@ -96,20 +110,6 @@ CMakeFiles/Exam.dir/Environment.cpp.i: cmake_force
 CMakeFiles/Exam.dir/Environment.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Exam.dir/Environment.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Environment.cpp -o CMakeFiles/Exam.dir/Environment.cpp.s
-
-CMakeFiles/Exam.dir/main.cpp.o: CMakeFiles/Exam.dir/flags.make
-CMakeFiles/Exam.dir/main.cpp.o: /home/krogh/CLionProjects/cpp/Exam/main.cpp
-CMakeFiles/Exam.dir/main.cpp.o: CMakeFiles/Exam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Exam.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Exam.dir/main.cpp.o -MF CMakeFiles/Exam.dir/main.cpp.o.d -o CMakeFiles/Exam.dir/main.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/main.cpp
-
-CMakeFiles/Exam.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Exam.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krogh/CLionProjects/cpp/Exam/main.cpp > CMakeFiles/Exam.dir/main.cpp.i
-
-CMakeFiles/Exam.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Exam.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/main.cpp -o CMakeFiles/Exam.dir/main.cpp.s
 
 CMakeFiles/Exam.dir/Molecule.cpp.o: CMakeFiles/Exam.dir/flags.make
 CMakeFiles/Exam.dir/Molecule.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Molecule.cpp
@@ -169,9 +169,9 @@ CMakeFiles/Exam.dir/Vessel.cpp.s: cmake_force
 
 # Object files for target Exam
 Exam_OBJECTS = \
+"CMakeFiles/Exam.dir/main.cpp.o" \
 "CMakeFiles/Exam.dir/Arrow.cpp.o" \
 "CMakeFiles/Exam.dir/Environment.cpp.o" \
-"CMakeFiles/Exam.dir/main.cpp.o" \
 "CMakeFiles/Exam.dir/Molecule.cpp.o" \
 "CMakeFiles/Exam.dir/Reaction.cpp.o" \
 "CMakeFiles/Exam.dir/Simulation.cpp.o" \
@@ -180,9 +180,9 @@ Exam_OBJECTS = \
 # External object files for target Exam
 Exam_EXTERNAL_OBJECTS =
 
+Exam: CMakeFiles/Exam.dir/main.cpp.o
 Exam: CMakeFiles/Exam.dir/Arrow.cpp.o
 Exam: CMakeFiles/Exam.dir/Environment.cpp.o
-Exam: CMakeFiles/Exam.dir/main.cpp.o
 Exam: CMakeFiles/Exam.dir/Molecule.cpp.o
 Exam: CMakeFiles/Exam.dir/Reaction.cpp.o
 Exam: CMakeFiles/Exam.dir/Simulation.cpp.o

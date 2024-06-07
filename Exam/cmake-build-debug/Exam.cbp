@@ -105,6 +105,50 @@
 					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="VesselTests">
+				<Option output="/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/VesselTests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/Makefile&quot;  VERBOSE=1 VesselTests"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="VesselTests/fast">
+				<Option output="/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/VesselTests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/Makefile&quot;  VERBOSE=1 VesselTests/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="test">
 				<Option working_dir="/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug"/>
 				<Option type="4"/>
@@ -138,48 +182,79 @@
 		</Build>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Arrow.cpp">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Arrow.h">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Environment.cpp">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Environment.h">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Molecule.cpp">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Molecule.h">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/ParallelSimulation.h">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Reaction.cpp">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Reaction.h">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Simulation.cpp">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Simulation.h">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/SymbolTable.h">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Tests/SymbolTableTests.cpp">
 			<Option target="SymbolTableTests"/>
 		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Tests/VesselTests.cpp">
+			<Option target="VesselTests"/>
+		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Vessel.cpp">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Vessel.h">
 			<Option target="Exam"/>
+			<Option target="SymbolTableTests"/>
+			<Option target="VesselTests"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/main.cpp">
 			<Option target="Exam"/>

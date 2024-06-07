@@ -230,4 +230,7 @@ CMakeFiles/Exam.dir/main.cpp.o: \
  /usr/include/c++/11/bits/erase_if.h \
  /home/krogh/CLionProjects/cpp/Exam/Arrow.h \
  /home/krogh/CLionProjects/cpp/Exam/Simulation.h \
- /home/krogh/CLionProjects/cpp/Exam/ParallelSimulation.h
+ /home/krogh/CLionProjects/cpp/Exam/ParallelSimulation.h \
+ /usr/include/c++/11/numeric /usr/include/c++/11/bits/stl_numeric.h \
+ /usr/include/c++/11/bit /usr/include/c++/11/pstl/glue_numeric_defs.h \
+ /usr/include/c++/11/pstl/execution_defs.h

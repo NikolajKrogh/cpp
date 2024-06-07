@@ -83,20 +83,116 @@ CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Tests/SymbolTableTests.cpp -o CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.s
 
+CMakeFiles/SymbolTableTests.dir/Arrow.cpp.o: CMakeFiles/SymbolTableTests.dir/flags.make
+CMakeFiles/SymbolTableTests.dir/Arrow.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Arrow.cpp
+CMakeFiles/SymbolTableTests.dir/Arrow.cpp.o: CMakeFiles/SymbolTableTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SymbolTableTests.dir/Arrow.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SymbolTableTests.dir/Arrow.cpp.o -MF CMakeFiles/SymbolTableTests.dir/Arrow.cpp.o.d -o CMakeFiles/SymbolTableTests.dir/Arrow.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/Arrow.cpp
+
+CMakeFiles/SymbolTableTests.dir/Arrow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SymbolTableTests.dir/Arrow.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krogh/CLionProjects/cpp/Exam/Arrow.cpp > CMakeFiles/SymbolTableTests.dir/Arrow.cpp.i
+
+CMakeFiles/SymbolTableTests.dir/Arrow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SymbolTableTests.dir/Arrow.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Arrow.cpp -o CMakeFiles/SymbolTableTests.dir/Arrow.cpp.s
+
+CMakeFiles/SymbolTableTests.dir/Environment.cpp.o: CMakeFiles/SymbolTableTests.dir/flags.make
+CMakeFiles/SymbolTableTests.dir/Environment.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Environment.cpp
+CMakeFiles/SymbolTableTests.dir/Environment.cpp.o: CMakeFiles/SymbolTableTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SymbolTableTests.dir/Environment.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SymbolTableTests.dir/Environment.cpp.o -MF CMakeFiles/SymbolTableTests.dir/Environment.cpp.o.d -o CMakeFiles/SymbolTableTests.dir/Environment.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/Environment.cpp
+
+CMakeFiles/SymbolTableTests.dir/Environment.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SymbolTableTests.dir/Environment.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krogh/CLionProjects/cpp/Exam/Environment.cpp > CMakeFiles/SymbolTableTests.dir/Environment.cpp.i
+
+CMakeFiles/SymbolTableTests.dir/Environment.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SymbolTableTests.dir/Environment.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Environment.cpp -o CMakeFiles/SymbolTableTests.dir/Environment.cpp.s
+
+CMakeFiles/SymbolTableTests.dir/Molecule.cpp.o: CMakeFiles/SymbolTableTests.dir/flags.make
+CMakeFiles/SymbolTableTests.dir/Molecule.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Molecule.cpp
+CMakeFiles/SymbolTableTests.dir/Molecule.cpp.o: CMakeFiles/SymbolTableTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SymbolTableTests.dir/Molecule.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SymbolTableTests.dir/Molecule.cpp.o -MF CMakeFiles/SymbolTableTests.dir/Molecule.cpp.o.d -o CMakeFiles/SymbolTableTests.dir/Molecule.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/Molecule.cpp
+
+CMakeFiles/SymbolTableTests.dir/Molecule.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SymbolTableTests.dir/Molecule.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krogh/CLionProjects/cpp/Exam/Molecule.cpp > CMakeFiles/SymbolTableTests.dir/Molecule.cpp.i
+
+CMakeFiles/SymbolTableTests.dir/Molecule.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SymbolTableTests.dir/Molecule.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Molecule.cpp -o CMakeFiles/SymbolTableTests.dir/Molecule.cpp.s
+
+CMakeFiles/SymbolTableTests.dir/Reaction.cpp.o: CMakeFiles/SymbolTableTests.dir/flags.make
+CMakeFiles/SymbolTableTests.dir/Reaction.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Reaction.cpp
+CMakeFiles/SymbolTableTests.dir/Reaction.cpp.o: CMakeFiles/SymbolTableTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SymbolTableTests.dir/Reaction.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SymbolTableTests.dir/Reaction.cpp.o -MF CMakeFiles/SymbolTableTests.dir/Reaction.cpp.o.d -o CMakeFiles/SymbolTableTests.dir/Reaction.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/Reaction.cpp
+
+CMakeFiles/SymbolTableTests.dir/Reaction.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SymbolTableTests.dir/Reaction.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krogh/CLionProjects/cpp/Exam/Reaction.cpp > CMakeFiles/SymbolTableTests.dir/Reaction.cpp.i
+
+CMakeFiles/SymbolTableTests.dir/Reaction.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SymbolTableTests.dir/Reaction.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Reaction.cpp -o CMakeFiles/SymbolTableTests.dir/Reaction.cpp.s
+
+CMakeFiles/SymbolTableTests.dir/Simulation.cpp.o: CMakeFiles/SymbolTableTests.dir/flags.make
+CMakeFiles/SymbolTableTests.dir/Simulation.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Simulation.cpp
+CMakeFiles/SymbolTableTests.dir/Simulation.cpp.o: CMakeFiles/SymbolTableTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SymbolTableTests.dir/Simulation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SymbolTableTests.dir/Simulation.cpp.o -MF CMakeFiles/SymbolTableTests.dir/Simulation.cpp.o.d -o CMakeFiles/SymbolTableTests.dir/Simulation.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/Simulation.cpp
+
+CMakeFiles/SymbolTableTests.dir/Simulation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SymbolTableTests.dir/Simulation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krogh/CLionProjects/cpp/Exam/Simulation.cpp > CMakeFiles/SymbolTableTests.dir/Simulation.cpp.i
+
+CMakeFiles/SymbolTableTests.dir/Simulation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SymbolTableTests.dir/Simulation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Simulation.cpp -o CMakeFiles/SymbolTableTests.dir/Simulation.cpp.s
+
+CMakeFiles/SymbolTableTests.dir/Vessel.cpp.o: CMakeFiles/SymbolTableTests.dir/flags.make
+CMakeFiles/SymbolTableTests.dir/Vessel.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Vessel.cpp
+CMakeFiles/SymbolTableTests.dir/Vessel.cpp.o: CMakeFiles/SymbolTableTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SymbolTableTests.dir/Vessel.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SymbolTableTests.dir/Vessel.cpp.o -MF CMakeFiles/SymbolTableTests.dir/Vessel.cpp.o.d -o CMakeFiles/SymbolTableTests.dir/Vessel.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/Vessel.cpp
+
+CMakeFiles/SymbolTableTests.dir/Vessel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SymbolTableTests.dir/Vessel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krogh/CLionProjects/cpp/Exam/Vessel.cpp > CMakeFiles/SymbolTableTests.dir/Vessel.cpp.i
+
+CMakeFiles/SymbolTableTests.dir/Vessel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SymbolTableTests.dir/Vessel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Vessel.cpp -o CMakeFiles/SymbolTableTests.dir/Vessel.cpp.s
+
 # Object files for target SymbolTableTests
 SymbolTableTests_OBJECTS = \
-"CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.o"
+"CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.o" \
+"CMakeFiles/SymbolTableTests.dir/Arrow.cpp.o" \
+"CMakeFiles/SymbolTableTests.dir/Environment.cpp.o" \
+"CMakeFiles/SymbolTableTests.dir/Molecule.cpp.o" \
+"CMakeFiles/SymbolTableTests.dir/Reaction.cpp.o" \
+"CMakeFiles/SymbolTableTests.dir/Simulation.cpp.o" \
+"CMakeFiles/SymbolTableTests.dir/Vessel.cpp.o"
 
 # External object files for target SymbolTableTests
 SymbolTableTests_EXTERNAL_OBJECTS =
 
 SymbolTableTests: CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.o
+SymbolTableTests: CMakeFiles/SymbolTableTests.dir/Arrow.cpp.o
+SymbolTableTests: CMakeFiles/SymbolTableTests.dir/Environment.cpp.o
+SymbolTableTests: CMakeFiles/SymbolTableTests.dir/Molecule.cpp.o
+SymbolTableTests: CMakeFiles/SymbolTableTests.dir/Reaction.cpp.o
+SymbolTableTests: CMakeFiles/SymbolTableTests.dir/Simulation.cpp.o
+SymbolTableTests: CMakeFiles/SymbolTableTests.dir/Vessel.cpp.o
 SymbolTableTests: CMakeFiles/SymbolTableTests.dir/build.make
 SymbolTableTests: /usr/local/lib/libgtest.a
 SymbolTableTests: /usr/local/lib/libgtest_main.a
 SymbolTableTests: /usr/local/lib/libgtest.a
 SymbolTableTests: CMakeFiles/SymbolTableTests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable SymbolTableTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable SymbolTableTests"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SymbolTableTests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

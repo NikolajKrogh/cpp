@@ -4,6 +4,9 @@
 #include "Vessel.h"
 #include "Simulation.h"
 #include "ParallelSimulation.h"
+#include <vector>
+#include <numeric>
+
 
 stochastic::Vessel simulation_circadian_rhythm() {
     const auto alphaA = 50;
@@ -139,6 +142,8 @@ void parallel_simulation_test() {
             {example1, example2, example3}, 2000);
 }
 
+
+
 void pretty_print_circadian_rhythm() {
     const auto alphaA = 50;
     const auto alpha_A = 500;
@@ -228,7 +233,7 @@ void symbol_table_test() {
 
 int main() {
 
-    symbol_table_test();
+//    symbol_table_test();
 
 //    pretty_print_circadian_rhythm();
 

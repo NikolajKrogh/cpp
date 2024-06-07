@@ -1043,6 +1043,7 @@ CMakeFiles/Exam.dir/main.cpp.o: /home/krogh/CLionProjects/cpp/Exam/main.cpp \
   /usr/include/c++/11/array \
   /usr/include/c++/11/atomic \
   /usr/include/c++/11/backward/binders.h \
+  /usr/include/c++/11/bit \
   /usr/include/c++/11/bits/algorithmfwd.h \
   /usr/include/c++/11/bits/alloc_traits.h \
   /usr/include/c++/11/bits/allocator.h \
@@ -1107,6 +1108,7 @@ CMakeFiles/Exam.dir/main.cpp.o: /home/krogh/CLionProjects/cpp/Exam/main.cpp \
   /usr/include/c++/11/bits/stl_iterator_base_types.h \
   /usr/include/c++/11/bits/stl_map.h \
   /usr/include/c++/11/bits/stl_multimap.h \
+  /usr/include/c++/11/bits/stl_numeric.h \
   /usr/include/c++/11/bits/stl_pair.h \
   /usr/include/c++/11/bits/stl_relops.h \
   /usr/include/c++/11/bits/stl_tempbuf.h \
@@ -1155,7 +1157,10 @@ CMakeFiles/Exam.dir/main.cpp.o: /home/krogh/CLionProjects/cpp/Exam/main.cpp \
   /usr/include/c++/11/map \
   /usr/include/c++/11/new \
   /usr/include/c++/11/numbers \
+  /usr/include/c++/11/numeric \
   /usr/include/c++/11/ostream \
+  /usr/include/c++/11/pstl/execution_defs.h \
+  /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/pstl/pstl_config.h \
   /usr/include/c++/11/ratio \
   /usr/include/c++/11/semaphore \

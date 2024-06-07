@@ -152,12 +152,27 @@ SymbolTableTests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/build
 .PHONY : SymbolTableTests/fast
 
+#=============================================================================
+# Target rules for targets named VesselTests
+
+# Build rule for target.
+VesselTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 VesselTests
+.PHONY : VesselTests
+
+# fast build rule for target.
+VesselTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/build
+.PHONY : VesselTests/fast
+
 Arrow.o: Arrow.cpp.o
 .PHONY : Arrow.o
 
 # target to build an object file
 Arrow.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Arrow.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Arrow.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Arrow.cpp.o
 .PHONY : Arrow.cpp.o
 
 Arrow.i: Arrow.cpp.i
@@ -166,6 +181,8 @@ Arrow.i: Arrow.cpp.i
 # target to preprocess a source file
 Arrow.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Arrow.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Arrow.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Arrow.cpp.i
 .PHONY : Arrow.cpp.i
 
 Arrow.s: Arrow.cpp.s
@@ -174,6 +191,8 @@ Arrow.s: Arrow.cpp.s
 # target to generate assembly for a file
 Arrow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Arrow.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Arrow.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Arrow.cpp.s
 .PHONY : Arrow.cpp.s
 
 Environment.o: Environment.cpp.o
@@ -182,6 +201,8 @@ Environment.o: Environment.cpp.o
 # target to build an object file
 Environment.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Environment.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Environment.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Environment.cpp.o
 .PHONY : Environment.cpp.o
 
 Environment.i: Environment.cpp.i
@@ -190,6 +211,8 @@ Environment.i: Environment.cpp.i
 # target to preprocess a source file
 Environment.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Environment.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Environment.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Environment.cpp.i
 .PHONY : Environment.cpp.i
 
 Environment.s: Environment.cpp.s
@@ -198,6 +221,8 @@ Environment.s: Environment.cpp.s
 # target to generate assembly for a file
 Environment.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Environment.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Environment.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Environment.cpp.s
 .PHONY : Environment.cpp.s
 
 Molecule.o: Molecule.cpp.o
@@ -206,6 +231,8 @@ Molecule.o: Molecule.cpp.o
 # target to build an object file
 Molecule.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Molecule.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Molecule.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Molecule.cpp.o
 .PHONY : Molecule.cpp.o
 
 Molecule.i: Molecule.cpp.i
@@ -214,6 +241,8 @@ Molecule.i: Molecule.cpp.i
 # target to preprocess a source file
 Molecule.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Molecule.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Molecule.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Molecule.cpp.i
 .PHONY : Molecule.cpp.i
 
 Molecule.s: Molecule.cpp.s
@@ -222,6 +251,8 @@ Molecule.s: Molecule.cpp.s
 # target to generate assembly for a file
 Molecule.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Molecule.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Molecule.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Molecule.cpp.s
 .PHONY : Molecule.cpp.s
 
 Reaction.o: Reaction.cpp.o
@@ -230,6 +261,8 @@ Reaction.o: Reaction.cpp.o
 # target to build an object file
 Reaction.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Reaction.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Reaction.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Reaction.cpp.o
 .PHONY : Reaction.cpp.o
 
 Reaction.i: Reaction.cpp.i
@@ -238,6 +271,8 @@ Reaction.i: Reaction.cpp.i
 # target to preprocess a source file
 Reaction.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Reaction.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Reaction.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Reaction.cpp.i
 .PHONY : Reaction.cpp.i
 
 Reaction.s: Reaction.cpp.s
@@ -246,6 +281,8 @@ Reaction.s: Reaction.cpp.s
 # target to generate assembly for a file
 Reaction.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Reaction.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Reaction.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Reaction.cpp.s
 .PHONY : Reaction.cpp.s
 
 Simulation.o: Simulation.cpp.o
@@ -254,6 +291,8 @@ Simulation.o: Simulation.cpp.o
 # target to build an object file
 Simulation.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Simulation.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Simulation.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Simulation.cpp.o
 .PHONY : Simulation.cpp.o
 
 Simulation.i: Simulation.cpp.i
@@ -262,6 +301,8 @@ Simulation.i: Simulation.cpp.i
 # target to preprocess a source file
 Simulation.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Simulation.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Simulation.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Simulation.cpp.i
 .PHONY : Simulation.cpp.i
 
 Simulation.s: Simulation.cpp.s
@@ -270,6 +311,8 @@ Simulation.s: Simulation.cpp.s
 # target to generate assembly for a file
 Simulation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Simulation.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Simulation.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Simulation.cpp.s
 .PHONY : Simulation.cpp.s
 
 Tests/SymbolTableTests.o: Tests/SymbolTableTests.cpp.o
@@ -296,12 +339,38 @@ Tests/SymbolTableTests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.s
 .PHONY : Tests/SymbolTableTests.cpp.s
 
+Tests/VesselTests.o: Tests/VesselTests.cpp.o
+.PHONY : Tests/VesselTests.o
+
+# target to build an object file
+Tests/VesselTests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Tests/VesselTests.cpp.o
+.PHONY : Tests/VesselTests.cpp.o
+
+Tests/VesselTests.i: Tests/VesselTests.cpp.i
+.PHONY : Tests/VesselTests.i
+
+# target to preprocess a source file
+Tests/VesselTests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Tests/VesselTests.cpp.i
+.PHONY : Tests/VesselTests.cpp.i
+
+Tests/VesselTests.s: Tests/VesselTests.cpp.s
+.PHONY : Tests/VesselTests.s
+
+# target to generate assembly for a file
+Tests/VesselTests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Tests/VesselTests.cpp.s
+.PHONY : Tests/VesselTests.cpp.s
+
 Vessel.o: Vessel.cpp.o
 .PHONY : Vessel.o
 
 # target to build an object file
 Vessel.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Vessel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Vessel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Vessel.cpp.o
 .PHONY : Vessel.cpp.o
 
 Vessel.i: Vessel.cpp.i
@@ -310,6 +379,8 @@ Vessel.i: Vessel.cpp.i
 # target to preprocess a source file
 Vessel.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Vessel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Vessel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Vessel.cpp.i
 .PHONY : Vessel.cpp.i
 
 Vessel.s: Vessel.cpp.s
@@ -318,6 +389,8 @@ Vessel.s: Vessel.cpp.s
 # target to generate assembly for a file
 Vessel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Vessel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Vessel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/VesselTests.dir/build.make CMakeFiles/VesselTests.dir/Vessel.cpp.s
 .PHONY : Vessel.cpp.s
 
 main.o: main.cpp.o
@@ -355,6 +428,7 @@ help:
 	@echo "... test"
 	@echo "... Exam"
 	@echo "... SymbolTableTests"
+	@echo "... VesselTests"
 	@echo "... Arrow.o"
 	@echo "... Arrow.i"
 	@echo "... Arrow.s"
@@ -373,6 +447,9 @@ help:
 	@echo "... Tests/SymbolTableTests.o"
 	@echo "... Tests/SymbolTableTests.i"
 	@echo "... Tests/SymbolTableTests.s"
+	@echo "... Tests/VesselTests.o"
+	@echo "... Tests/VesselTests.i"
+	@echo "... Tests/VesselTests.s"
 	@echo "... Vessel.o"
 	@echo "... Vessel.i"
 	@echo "... Vessel.s"
