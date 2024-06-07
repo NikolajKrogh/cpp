@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/krogh/CLionProjects/cpp/Exam/cmake-build-debug
 
 # The main recursive "all" target.
 all: CMakeFiles/Exam.dir/all
+all: CMakeFiles/SymbolTableTests.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,6 +73,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/Exam.dir/clean
+clean: CMakeFiles/SymbolTableTests.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -99,6 +101,32 @@ Exam: CMakeFiles/Exam.dir/rule
 CMakeFiles/Exam.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/clean
 .PHONY : CMakeFiles/Exam.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/SymbolTableTests.dir
+
+# All Build rule for target.
+CMakeFiles/SymbolTableTests.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target SymbolTableTests"
+.PHONY : CMakeFiles/SymbolTableTests.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/SymbolTableTests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SymbolTableTests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/SymbolTableTests.dir/rule
+
+# Convenience name for target.
+SymbolTableTests: CMakeFiles/SymbolTableTests.dir/rule
+.PHONY : SymbolTableTests
+
+# clean rule for target.
+CMakeFiles/SymbolTableTests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/clean
+.PHONY : CMakeFiles/SymbolTableTests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -118,6 +118,7 @@ stochastic::Vessel simulation_example3() {
 
     return v;
 }
+
 void single_simulation_test() {
     auto covid19 = simulation_covid19(10000);
     auto circadian_rhythm = simulation_circadian_rhythm();
@@ -217,17 +218,23 @@ void symbol_table_test() {
     // Try to insert a key that already exists
     symbolTable.insert("DA", 1);
 
+    // Update the value associated with a key
+    symbolTable.update("DA", 2);
+
+    // Update the value associated with a key that does not exist
+    symbolTable.update("test", 2);
+
 }
 
 int main() {
 
-//    symbol_table_test();
+    symbol_table_test();
 
 //    pretty_print_circadian_rhythm();
 
 
 //    single_simulation_test();
 
-    parallel_simulation_test();
+//    parallel_simulation_test();
     return 0;
 }

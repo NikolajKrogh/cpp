@@ -80,6 +80,24 @@ namespace stochastic {
         }
 
 
+/**
+ * @brief Updates the value associated with a given key in the symbol table.
+ *
+ * If the key already exists in the table, it updates the value.
+ * If the key does not exist, it prints a message indicating that the key was not found.
+ *
+ * @param key The key for which to update the value.
+ * @param value The new value to associate with the given key.
+ */
+        void update(K key, V value) {
+            if (table.find(key) != table.end()) {
+                table[key] = value;
+            } else {
+                std::cout << ("Key not found in SymbolTable") << std::endl;
+            }
+        }
+
+
     };
 
 } // stochastic

@@ -15,7 +15,8 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -30,7 +31,8 @@
 					"name" : "Exam",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -39,8 +41,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Exam::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Exam-Debug-78789f8ad72c4810eec1.json",
+					"jsonFile" : "target-Exam-Debug-5f7efebe49bdd7f237eb.json",
 					"name" : "Exam",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SymbolTableTests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SymbolTableTests-Debug-c8b9041700c3487e76e1.json",
+					"name" : "SymbolTableTests",
 					"projectIndex" : 0
 				}
 			]

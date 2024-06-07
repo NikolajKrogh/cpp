@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.o -o SymbolTableTests  /usr/local/lib/libgtest.a /usr/local/lib/libgtest_main.a -lpthread /usr/local/lib/libgtest.a 

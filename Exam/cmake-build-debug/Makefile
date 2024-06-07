@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/krogh/CLionProjects/cpp/Exam/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/home/krogh/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -128,6 +138,19 @@ Exam: cmake_check_build_system
 Exam/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/build
 .PHONY : Exam/fast
+
+#=============================================================================
+# Target rules for targets named SymbolTableTests
+
+# Build rule for target.
+SymbolTableTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SymbolTableTests
+.PHONY : SymbolTableTests
+
+# fast build rule for target.
+SymbolTableTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/build
+.PHONY : SymbolTableTests/fast
 
 Arrow.o: Arrow.cpp.o
 .PHONY : Arrow.o
@@ -249,6 +272,30 @@ Simulation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Exam.dir/build.make CMakeFiles/Exam.dir/Simulation.cpp.s
 .PHONY : Simulation.cpp.s
 
+Tests/SymbolTableTests.o: Tests/SymbolTableTests.cpp.o
+.PHONY : Tests/SymbolTableTests.o
+
+# target to build an object file
+Tests/SymbolTableTests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.o
+.PHONY : Tests/SymbolTableTests.cpp.o
+
+Tests/SymbolTableTests.i: Tests/SymbolTableTests.cpp.i
+.PHONY : Tests/SymbolTableTests.i
+
+# target to preprocess a source file
+Tests/SymbolTableTests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.i
+.PHONY : Tests/SymbolTableTests.cpp.i
+
+Tests/SymbolTableTests.s: Tests/SymbolTableTests.cpp.s
+.PHONY : Tests/SymbolTableTests.s
+
+# target to generate assembly for a file
+Tests/SymbolTableTests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SymbolTableTests.dir/build.make CMakeFiles/SymbolTableTests.dir/Tests/SymbolTableTests.cpp.s
+.PHONY : Tests/SymbolTableTests.cpp.s
+
 Vessel.o: Vessel.cpp.o
 .PHONY : Vessel.o
 
@@ -305,7 +352,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... Exam"
+	@echo "... SymbolTableTests"
 	@echo "... Arrow.o"
 	@echo "... Arrow.i"
 	@echo "... Arrow.s"
@@ -321,6 +370,9 @@ help:
 	@echo "... Simulation.o"
 	@echo "... Simulation.i"
 	@echo "... Simulation.s"
+	@echo "... Tests/SymbolTableTests.o"
+	@echo "... Tests/SymbolTableTests.i"
+	@echo "... Tests/SymbolTableTests.s"
 	@echo "... Vessel.o"
 	@echo "... Vessel.i"
 	@echo "... Vessel.s"
