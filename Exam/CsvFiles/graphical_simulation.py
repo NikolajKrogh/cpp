@@ -69,7 +69,7 @@ def plot_covid19(file_path):
     plt.plot(data['Time'], data['S'], label='S', color='red')
     plt.plot(data['Time'], data['E'], label='E', color='green')
     plt.plot(data['Time'], data['I'], label='I', color='blue')
-    plt.plot(data['Time'], data['H'], label='H*1000', color='turquoise')
+    plt.plot(data['Time'], data['H'], label='H', color='turquoise')
     plt.plot(data['Time'], data['R'], label='R', color='purple')
 
     # Add labels and title

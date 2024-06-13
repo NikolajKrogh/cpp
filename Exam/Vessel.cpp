@@ -213,25 +213,5 @@ namespace stochastic {
         write_to_file(arrows, table);
     }
 
-    void Vessel::update_peak_counts(const std::string &name) {
-        uint32_t current_quantity = this->get(name).quantity;
-        if (peak_counts.find(name) == peak_counts.end() || current_quantity > peak_counts[name]) {
-            peak_counts[name] = current_quantity;
-        }
-    }
-
-    uint32_t Vessel::get_peak_counts(const std::string &name) {
-        auto find = peak_counts.find(name);
-        if (find != peak_counts.end()) {
-            return find->second;
-        } else {
-            return 0;
-        }
-
-    }
-
-    const Molecule &Vessel::get(const std::string &name) const {
-        return *molecules.get(name);
-    }
 
 } // stochastic

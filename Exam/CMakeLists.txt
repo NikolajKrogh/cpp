@@ -16,17 +16,19 @@ set(COMMON_SRC
     Environment.h
     Molecule.cpp
     Molecule.h
-    ParallelSimulation.h
+        ParallelSimulation.h
     Reaction.cpp
     Reaction.h
-    Simulation.cpp
-    Simulation.h
+        Simulation.h
     SymbolTable.h
     Vessel.cpp
     Vessel.h
 )
 
-add_executable(Exam main.cpp ${COMMON_SRC})
+add_executable(Exam main.cpp ${COMMON_SRC}
+        benchmark.h
+        benchmark.cpp
+        benchmark.h)
 
 # Define test source files
 set(TEST_SRC

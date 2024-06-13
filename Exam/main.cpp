@@ -4,6 +4,7 @@
 #include "Vessel.h"
 #include "Simulation.h"
 #include "ParallelSimulation.h"
+#include "benchmark.h"
 #include <vector>
 #include <numeric>
 
@@ -122,6 +123,53 @@ stochastic::Vessel simulation_example3() {
     return v;
 }
 
+void peak_hospitalized_agents_nnj_ndk() {
+
+    auto observer = [](stochastic::Vessel &vessel, double T) {
+        static int maxHospitalized = 0;
+        int currentHospitalized = vessel.molecules.get("H")->quantity;
+        if (currentHospitalized > maxHospitalized) {
+            maxHospitalized = currentHospitalized;
+        }
+        if (T > 100) {
+            std::cout << vessel.name << "\nPeak hospitalized: " << maxHospitalized << std::endl;
+        }
+    };
+    auto NNJ = 589755;
+    auto NDK = 5822763;
+    std::vector<int> populationSizes = {NNJ};
+    for (int N: populationSizes) {
+        auto vessel = simulation_covid19(N);
+        stochastic::Simulation::simulate("", vessel, observer, 100, false);
+    }
+}
+
+void peak_hospitalized_over_100_sims() {
+    int sumMaxHospitalized = 0;
+    int numSimulations = 100;
+
+    auto observer = [&sumMaxHospitalized](stochastic::Vessel &vessel, double T) {
+        static int maxHospitalized = 0;
+        int currentHospitalized = vessel.molecules.get("H")->quantity;
+        if (currentHospitalized > maxHospitalized) {
+            maxHospitalized = currentHospitalized;
+        }
+        if (T > 100) {
+            sumMaxHospitalized += maxHospitalized;
+            maxHospitalized = 0; // reset for next simulation
+        }
+    };
+
+    std::vector<stochastic::Vessel> vessels;
+    for (int i = 0; i < numSimulations; ++i) {
+        vessels.push_back(simulation_covid19(10000));
+    }
+    stochastic::ParallelSimulation::parallelize_simulations(vessels, observer, 100, false);
+    double averagePeakHospitalized = static_cast<double>(sumMaxHospitalized) / numSimulations;
+    std::cout << "Average peak hospitalized over " << numSimulations << " simulations: " << averagePeakHospitalized
+              << std::endl;
+}
+
 void single_simulation_test() {
     auto covid19 = simulation_covid19(10000);
     auto circadian_rhythm = simulation_circadian_rhythm();
@@ -129,7 +177,7 @@ void single_simulation_test() {
     auto example2 = simulation_example2();
     auto example3 = simulation_example3();
     std::string path = stochastic::Simulation::assign_unique_filename(covid19.name);
-    stochastic::Simulation::simulate(path, covid19, 100);
+    stochastic::Simulation::simulate(path, covid19, [](stochastic::Vessel &v, double t) {}, 100);
 }
 
 void parallel_simulation_test() {
@@ -138,10 +186,10 @@ void parallel_simulation_test() {
     auto example1 = simulation_example1();
     auto example2 = simulation_example2();
     auto example3 = simulation_example3();
+    auto observer = [](stochastic::Vessel &v, double t) {};
     stochastic::ParallelSimulation::parallelize_simulations(
-            {example1, example2, example3}, 2000);
+            {example1, example2, example3}, observer, 2000);
 }
-
 
 
 void pretty_print_circadian_rhythm() {
@@ -231,6 +279,40 @@ void symbol_table_test() {
 
 }
 
+void benchmark() {
+    // Make 100 vessels for simulation
+    std::vector<stochastic::Vessel> vessels;
+    for (int i = 0; i < 100; ++i) {
+        vessels.push_back(simulation_covid19(10000));
+    }
+    // Make 100 vessels for parallel simulation
+    std::vector<stochastic::Vessel> vessels2;
+    for (int i = 0; i < 100; ++i) {
+        vessels2.push_back(simulation_covid19(10000));
+    }
+
+    stochastic::Benchmark benchmark;
+
+    benchmark.start("Covid19Sim");
+    for (int i = 0; i < 100; ++i) {
+
+        stochastic::Simulation::simulate("", vessels[i], [](stochastic::Vessel &v, double t) {}, 100,
+                                         false);
+    }
+    benchmark.stop("Covid19Sim");
+
+    benchmark.start("ParallelCovid19Sim");
+    auto observer = [](stochastic::Vessel &v, double t) {
+        //std::cout << "Time: " << t << std::endl;
+        //v.print_reactions();
+    };
+    // Use vessel2 because if it gets reference from the other vessels, the simulation has ended
+    stochastic::ParallelSimulation::parallelize_simulations(vessels2, observer, 100, false);
+    benchmark.stop("ParallelCovid19Sim");
+
+    benchmark.report();
+}
+
 int main() {
 
 //    symbol_table_test();
@@ -241,5 +323,9 @@ int main() {
 //    single_simulation_test();
 
 //    parallel_simulation_test();
+
+//    peak_hospitalized_agents_nnj_ndk();
+//    peak_hospitalized_over_100_sims();
+    benchmark();
     return 0;
 }

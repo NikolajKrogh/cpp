@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Exam",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Exam::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Exam-Release-4e2d42179c77a1d20fbd.json",
+					"name" : "Exam",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SymbolTableTests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SymbolTableTests-Release-327967681693beab897f.json",
+					"name" : "SymbolTableTests",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "VesselTests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-VesselTests-Release-e6c97be161d530ef924d.json",
+					"name" : "VesselTests",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/krogh/CLionProjects/cpp/Exam/cmake-build-release",
+		"source" : "/home/krogh/CLionProjects/cpp/Exam"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

@@ -225,11 +225,6 @@
 			<Option target="SymbolTableTests"/>
 			<Option target="VesselTests"/>
 		</Unit>
-		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Simulation.cpp">
-			<Option target="Exam"/>
-			<Option target="SymbolTableTests"/>
-			<Option target="VesselTests"/>
-		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/Simulation.h">
 			<Option target="Exam"/>
 			<Option target="SymbolTableTests"/>
@@ -255,6 +250,12 @@
 			<Option target="Exam"/>
 			<Option target="SymbolTableTests"/>
 			<Option target="VesselTests"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/benchmark.cpp">
+			<Option target="Exam"/>
+		</Unit>
+		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/benchmark.h">
+			<Option target="Exam"/>
 		</Unit>
 		<Unit filename="/home/krogh/CLionProjects/cpp/Exam/main.cpp">
 			<Option target="Exam"/>

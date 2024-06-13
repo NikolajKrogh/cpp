@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/Exam.dir/main.cpp.o CMakeFiles/Exam.dir/Arrow.cpp.o CMakeFiles/Exam.dir/Environment.cpp.o CMakeFiles/Exam.dir/Molecule.cpp.o CMakeFiles/Exam.dir/Reaction.cpp.o CMakeFiles/Exam.dir/Vessel.cpp.o CMakeFiles/Exam.dir/benchmark.cpp.o -o Exam 

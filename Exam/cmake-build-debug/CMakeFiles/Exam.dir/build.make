@@ -139,24 +139,10 @@ CMakeFiles/Exam.dir/Reaction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Exam.dir/Reaction.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Reaction.cpp -o CMakeFiles/Exam.dir/Reaction.cpp.s
 
-CMakeFiles/Exam.dir/Simulation.cpp.o: CMakeFiles/Exam.dir/flags.make
-CMakeFiles/Exam.dir/Simulation.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Simulation.cpp
-CMakeFiles/Exam.dir/Simulation.cpp.o: CMakeFiles/Exam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Exam.dir/Simulation.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Exam.dir/Simulation.cpp.o -MF CMakeFiles/Exam.dir/Simulation.cpp.o.d -o CMakeFiles/Exam.dir/Simulation.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/Simulation.cpp
-
-CMakeFiles/Exam.dir/Simulation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Exam.dir/Simulation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krogh/CLionProjects/cpp/Exam/Simulation.cpp > CMakeFiles/Exam.dir/Simulation.cpp.i
-
-CMakeFiles/Exam.dir/Simulation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Exam.dir/Simulation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Simulation.cpp -o CMakeFiles/Exam.dir/Simulation.cpp.s
-
 CMakeFiles/Exam.dir/Vessel.cpp.o: CMakeFiles/Exam.dir/flags.make
 CMakeFiles/Exam.dir/Vessel.cpp.o: /home/krogh/CLionProjects/cpp/Exam/Vessel.cpp
 CMakeFiles/Exam.dir/Vessel.cpp.o: CMakeFiles/Exam.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Exam.dir/Vessel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Exam.dir/Vessel.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Exam.dir/Vessel.cpp.o -MF CMakeFiles/Exam.dir/Vessel.cpp.o.d -o CMakeFiles/Exam.dir/Vessel.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/Vessel.cpp
 
 CMakeFiles/Exam.dir/Vessel.cpp.i: cmake_force
@@ -167,6 +153,20 @@ CMakeFiles/Exam.dir/Vessel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Exam.dir/Vessel.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/Vessel.cpp -o CMakeFiles/Exam.dir/Vessel.cpp.s
 
+CMakeFiles/Exam.dir/benchmark.cpp.o: CMakeFiles/Exam.dir/flags.make
+CMakeFiles/Exam.dir/benchmark.cpp.o: /home/krogh/CLionProjects/cpp/Exam/benchmark.cpp
+CMakeFiles/Exam.dir/benchmark.cpp.o: CMakeFiles/Exam.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Exam.dir/benchmark.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Exam.dir/benchmark.cpp.o -MF CMakeFiles/Exam.dir/benchmark.cpp.o.d -o CMakeFiles/Exam.dir/benchmark.cpp.o -c /home/krogh/CLionProjects/cpp/Exam/benchmark.cpp
+
+CMakeFiles/Exam.dir/benchmark.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Exam.dir/benchmark.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/krogh/CLionProjects/cpp/Exam/benchmark.cpp > CMakeFiles/Exam.dir/benchmark.cpp.i
+
+CMakeFiles/Exam.dir/benchmark.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Exam.dir/benchmark.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/krogh/CLionProjects/cpp/Exam/benchmark.cpp -o CMakeFiles/Exam.dir/benchmark.cpp.s
+
 # Object files for target Exam
 Exam_OBJECTS = \
 "CMakeFiles/Exam.dir/main.cpp.o" \
@@ -174,8 +174,8 @@ Exam_OBJECTS = \
 "CMakeFiles/Exam.dir/Environment.cpp.o" \
 "CMakeFiles/Exam.dir/Molecule.cpp.o" \
 "CMakeFiles/Exam.dir/Reaction.cpp.o" \
-"CMakeFiles/Exam.dir/Simulation.cpp.o" \
-"CMakeFiles/Exam.dir/Vessel.cpp.o"
+"CMakeFiles/Exam.dir/Vessel.cpp.o" \
+"CMakeFiles/Exam.dir/benchmark.cpp.o"
 
 # External object files for target Exam
 Exam_EXTERNAL_OBJECTS =
@@ -185,8 +185,8 @@ Exam: CMakeFiles/Exam.dir/Arrow.cpp.o
 Exam: CMakeFiles/Exam.dir/Environment.cpp.o
 Exam: CMakeFiles/Exam.dir/Molecule.cpp.o
 Exam: CMakeFiles/Exam.dir/Reaction.cpp.o
-Exam: CMakeFiles/Exam.dir/Simulation.cpp.o
 Exam: CMakeFiles/Exam.dir/Vessel.cpp.o
+Exam: CMakeFiles/Exam.dir/benchmark.cpp.o
 Exam: CMakeFiles/Exam.dir/build.make
 Exam: CMakeFiles/Exam.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/krogh/CLionProjects/cpp/Exam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Exam"
