@@ -1,6 +1,0 @@
-/home/krogh/CLionProjects/cpp/Exam/cmake-build-release/CMakeFiles/Exam.dir
-/home/krogh/CLionProjects/cpp/Exam/cmake-build-release/CMakeFiles/SymbolTableTests.dir
-/home/krogh/CLionProjects/cpp/Exam/cmake-build-release/CMakeFiles/VesselTests.dir
-/home/krogh/CLionProjects/cpp/Exam/cmake-build-release/CMakeFiles/test.dir
-/home/krogh/CLionProjects/cpp/Exam/cmake-build-release/CMakeFiles/edit_cache.dir
-/home/krogh/CLionProjects/cpp/Exam/cmake-build-release/CMakeFiles/rebuild_cache.dir

@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/PrettyPrintTests.dir/Tests/PrettyPrintTests.cpp.o -o PrettyPrintTests  /usr/local/lib/libgtest.a /usr/local/lib/libgtest_main.a -lpthread /usr/local/lib/libgtest.a 

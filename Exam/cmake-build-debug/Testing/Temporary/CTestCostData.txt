@@ -1,3 +1,0 @@
-SymbolTableTests 1 0
----
-SymbolTableTests

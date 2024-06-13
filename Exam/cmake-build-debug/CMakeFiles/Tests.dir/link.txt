@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/Tests.dir/Tests/SymbolTableTests.cpp.o CMakeFiles/Tests.dir/Tests/PrettyPrintTest.cpp.o -o Tests  /usr/local/lib/libgtest.a /usr/local/lib/libgtest_main.a -lpthread /usr/local/lib/libgtest.a 

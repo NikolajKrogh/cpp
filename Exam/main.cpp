@@ -326,6 +326,6 @@ int main() {
 
 //    peak_hospitalized_agents_nnj_ndk();
 //    peak_hospitalized_over_100_sims();
-    benchmark();
+//    benchmark();
     return 0;
 }
