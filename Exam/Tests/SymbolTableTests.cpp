@@ -1,6 +1,10 @@
 #include <gtest/gtest.h>
 #include "../SymbolTable.h"
 
+/**
+ * Entire file is exercise 9
+ */
+
 TEST(SymbolTableTest, InsertAndRetrieveValue) {
     stochastic::SymbolTable<int, std::string> table;
     table.insert(1, "one");

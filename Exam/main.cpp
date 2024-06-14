@@ -6,7 +6,6 @@
 #include "ParallelSimulation.h"
 #include "benchmark.h"
 #include <vector>
-#include <numeric>
 
 
 stochastic::Vessel simulation_circadian_rhythm() {
@@ -123,53 +122,6 @@ stochastic::Vessel simulation_example3() {
     return v;
 }
 
-void peak_hospitalized_agents_nnj_ndk() {
-
-    auto observer = [](stochastic::Vessel &vessel, double T) {
-        static int maxHospitalized = 0;
-        int currentHospitalized = vessel.molecules.get("H")->quantity;
-        if (currentHospitalized > maxHospitalized) {
-            maxHospitalized = currentHospitalized;
-        }
-        if (T > 100) {
-            std::cout << vessel.name << "\nPeak hospitalized: " << maxHospitalized << std::endl;
-        }
-    };
-    auto NNJ = 589755;
-    auto NDK = 5822763;
-    std::vector<int> populationSizes = {NNJ};
-    for (int N: populationSizes) {
-        auto vessel = simulation_covid19(N);
-        stochastic::Simulation::simulate("", vessel, observer, 100, false);
-    }
-}
-
-void peak_hospitalized_over_100_sims() {
-    int sumMaxHospitalized = 0;
-    int numSimulations = 100;
-
-    auto observer = [&sumMaxHospitalized](stochastic::Vessel &vessel, double T) {
-        static int maxHospitalized = 0;
-        int currentHospitalized = vessel.molecules.get("H")->quantity;
-        if (currentHospitalized > maxHospitalized) {
-            maxHospitalized = currentHospitalized;
-        }
-        if (T > 100) {
-            sumMaxHospitalized += maxHospitalized;
-            maxHospitalized = 0; // reset for next simulation
-        }
-    };
-
-    std::vector<stochastic::Vessel> vessels;
-    for (int i = 0; i < numSimulations; ++i) {
-        vessels.push_back(simulation_covid19(10000));
-    }
-    stochastic::ParallelSimulation::parallelize_simulations(vessels, observer, 100, false);
-    double averagePeakHospitalized = static_cast<double>(sumMaxHospitalized) / numSimulations;
-    std::cout << "Average peak hospitalized over " << numSimulations << " simulations: " << averagePeakHospitalized
-              << std::endl;
-}
-
 void single_simulation_test() {
     auto covid19 = simulation_covid19(10000);
     auto circadian_rhythm = simulation_circadian_rhythm();
@@ -177,7 +129,7 @@ void single_simulation_test() {
     auto example2 = simulation_example2();
     auto example3 = simulation_example3();
     std::string path = stochastic::Simulation::assign_unique_filename(covid19.name);
-    stochastic::Simulation::simulate(path, covid19, [](stochastic::Vessel &v, double t) {}, 100);
+    stochastic::Simulation::simulate(path, covid19, [](stochastic::Vessel &v, double current_time) {}, 100);
 }
 
 void parallel_simulation_test() {
@@ -186,11 +138,58 @@ void parallel_simulation_test() {
     auto example1 = simulation_example1();
     auto example2 = simulation_example2();
     auto example3 = simulation_example3();
-    auto observer = [](stochastic::Vessel &v, double t) {};
+    auto observer = [](stochastic::Vessel &v, double current_time) {};
     stochastic::ParallelSimulation::parallelize_simulations(
             {example1, example2, example3}, observer, 2000);
 }
 
+void peak_hospitalization_NNJ_NDK() {
+
+    auto observer = [](stochastic::Vessel &vessel, double current_time) {
+        static int max_hospitalized = 0;
+        int current_hospitalized = vessel.molecules.get("H")->quantity;
+        if (current_hospitalized > max_hospitalized) {
+            max_hospitalized = current_hospitalized;
+        }
+        if (current_time > 100) {
+            std::cout << vessel.name << "\nPeak hospitalized: " << max_hospitalized << std::endl;
+        }
+    };
+    auto NNJ = 589755;
+    auto NDK = 5822763;
+    std::vector<int> population_sizes = {NNJ};
+    for (int population_size: population_sizes) {
+        auto vessel = simulation_covid19(population_size);
+        stochastic::Simulation::simulate("", vessel, observer, 100, false);
+    }
+}
+
+void peak_hospitalized_over_100_simulations() {
+    int sum_max_hospitalized = 0;
+    int number_of_simulations = 100;
+
+    // Observer to keep track of the maximum number of hospitalized
+    auto observer = [&sum_max_hospitalized](stochastic::Vessel &vessel, double current_time) {
+        static int max_hospitalized = 0;
+        int current_hospitalized = vessel.molecules.get("H")->quantity;
+        if (current_hospitalized > max_hospitalized) {
+            max_hospitalized = current_hospitalized;
+        }
+        if (current_time > 100) {
+            sum_max_hospitalized += max_hospitalized;
+            max_hospitalized = 0; // reset for next simulation
+        }
+    };
+
+    std::vector<stochastic::Vessel> vessels;
+    for (int i = 0; i < number_of_simulations; ++i) {
+        vessels.push_back(simulation_covid19(10000));
+    }
+    stochastic::ParallelSimulation::parallelize_simulations(vessels, observer, 100, false);
+    double averagePeakHospitalized = static_cast<double>(sum_max_hospitalized) / number_of_simulations;
+    std::cout << "Average peak hospitalized over " << number_of_simulations << " simulations: " << averagePeakHospitalized
+              << std::endl;
+}
 
 void pretty_print_circadian_rhythm() {
     const auto alphaA = 50;
@@ -280,35 +279,32 @@ void symbol_table_test() {
 }
 
 void benchmark() {
-    // Make 100 vessels for simulation
-    std::vector<stochastic::Vessel> vessels;
+    // Make 100 vessels for single simulation
+    std::vector<stochastic::Vessel> single_simulation_vessels;
     for (int i = 0; i < 100; ++i) {
-        vessels.push_back(simulation_covid19(10000));
+        single_simulation_vessels.push_back(simulation_covid19(10000));
     }
     // Make 100 vessels for parallel simulation
-    std::vector<stochastic::Vessel> vessels2;
+    std::vector<stochastic::Vessel> parallel_simulation_vessels;
     for (int i = 0; i < 100; ++i) {
-        vessels2.push_back(simulation_covid19(10000));
+        parallel_simulation_vessels.push_back(simulation_covid19(10000));
     }
 
     stochastic::Benchmark benchmark;
 
-    benchmark.start("Covid19Sim");
+    benchmark.start("COVID-19 simulation");
     for (int i = 0; i < 100; ++i) {
 
-        stochastic::Simulation::simulate("", vessels[i], [](stochastic::Vessel &v, double t) {}, 100,
+        stochastic::Simulation::simulate("", single_simulation_vessels[i], [](stochastic::Vessel &v, double current_time) {}, 100,
                                          false);
     }
-    benchmark.stop("Covid19Sim");
+    benchmark.stop("COVID-19 simulation");
 
-    benchmark.start("ParallelCovid19Sim");
-    auto observer = [](stochastic::Vessel &v, double t) {
-        //std::cout << "Time: " << t << std::endl;
-        //v.print_reactions();
+    benchmark.start("Parallel COVID-19 simulation");
+    auto observer = [](stochastic::Vessel &v, double current_time) {
     };
-    // Use vessel2 because if it gets reference from the other vessels, the simulation has ended
-    stochastic::ParallelSimulation::parallelize_simulations(vessels2, observer, 100, false);
-    benchmark.stop("ParallelCovid19Sim");
+    stochastic::ParallelSimulation::parallelize_simulations(parallel_simulation_vessels, observer, 100, false);
+    benchmark.stop("Parallel COVID-19 simulation");
 
     benchmark.report();
 }
@@ -324,8 +320,8 @@ int main() {
 
 //    parallel_simulation_test();
 
-//    peak_hospitalized_agents_nnj_ndk();
-//    peak_hospitalized_over_100_sims();
-//    benchmark();
+//    peak_hospitalization_NNJ_NDK();
+//    peak_hospitalized_over_100_simulations();
+    benchmark();
     return 0;
 }

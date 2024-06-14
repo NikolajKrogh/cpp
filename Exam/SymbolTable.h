@@ -15,7 +15,8 @@ namespace stochastic {
         ~SymbolTable() = default;
 
 
-        /**
+       /**
+        * ------------------  Exercise 3 ------------------
         * @brief Inserts a key-value pair into the symbol table.
         *
         * This function attempts to insert a given key-value pair into the symbol table.
@@ -29,21 +30,21 @@ namespace stochastic {
             if (table.find(key) != table.end()) {
                 std::cout << "Symbol already exists in the table" << std::endl;
             } else {
-                std::cout << "Symbol: " << key << " inserted into the table" << std::endl;
                 table[key] = value;
             }
         }
 
-/**
- * @brief Retrieves the value associated with the given key from the symbol table.
- *
- * This function attempts to find the given key in the symbol table.
- * If the key is found, it returns the associated value.
- * If the key is not found, it prints an error message .
- *
- * @param key The key to search for in the symbol table.
- * @return The value associated with the given key.
- */
+        /**
+         * ------------------  Exercise 3 ------------------
+         * @brief Retrieves the value associated with the given key from the symbol table.
+         *
+         * This function attempts to find the given key in the symbol table.
+         * If the key is found, it returns the associated value.
+         * If the key is not found, it prints an error message .
+         *
+         * @param key The key to search for in the symbol table.
+         * @return The value associated with the given key.
+         */
         V get(const K &key) const {
             if (table.find(key) == table.end()) {
                 std::cout << "Symbol not found in the table" << std::endl;
@@ -51,18 +52,20 @@ namespace stochastic {
             return table.find(key)->second;
         }
 
-/**
- * @brief Checks if the symbol table contains the given key.
- *
- * @param key The key to check for in the symbol table.
- * @return True if the key exists in the table, false otherwise.
- */
+        /**
+         * ------------------  Exercise 3 ------------------
+         * @brief Checks if the symbol table contains the given key.
+         *
+         * @param key The key to check for in the symbol table.
+         * @return True if the key exists in the table, false otherwise.
+         */
         bool contains(K key) {
             return table.find(key) != table.end();
         }
 
 
-        /**
+       /**
+        * ------------------  Exercise 3 ------------------
         * @brief Retrieves all the values in the symbol table.
         *
         * This function iterates over all the key-value pairs in the symbol table,
@@ -80,15 +83,16 @@ namespace stochastic {
         }
 
 
-/**
- * @brief Updates the value associated with a given key in the symbol table.
- *
- * If the key already exists in the table, it updates the value.
- * If the key does not exist, it prints a message indicating that the key was not found.
- *
- * @param key The key for which to update the value.
- * @param value The new value to associate with the given key.
- */
+        /**
+         * ------------------  Exercise 3 ------------------
+         * @brief Updates the value associated with a given key in the symbol table.
+         *
+         * If the key already exists in the table, it updates the value.
+         * If the key does not exist, it prints a message indicating that the key was not found.
+         *
+         * @param key The key for which to update the value.
+         * @param value The new value to associate with the given key.
+         */
         void update(K key, V value) {
             if (table.find(key) != table.end()) {
                 table[key] = value;

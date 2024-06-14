@@ -2,6 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
+"""
+------------------  Exercise 6 ------------------
+"""
+
+
 def plot_example(file_path):
     # Load the data
     data = pd.read_csv(file_path)
@@ -25,8 +30,6 @@ def plot_example(file_path):
 
     # Save the plot to a PNG file
     plt.savefig('CsvFiles/graphs/' + file_path.split('/')[-1].replace('.csv', '') + '.png', format='png')
-
-
 
 
 def plot_circadian_rhythm(file_path):
@@ -86,6 +89,7 @@ def plot_covid19(file_path):
     # Save the plot to a PNG file
     plt.savefig('CsvFiles/graphs/' + file_path.split('/')[-1].replace('.csv', '') + '.png', format='png')
 
+
 def main():
     # Call the function for each file
     plot_example('CsvFiles/Example 1.csv')
@@ -93,6 +97,7 @@ def main():
     plot_example('CsvFiles/Example 3.csv')
     plot_circadian_rhythm('CsvFiles/Circadian Rhythm.csv')
     plot_covid19('CsvFiles/COVID19 SEIHR: 10000.csv')
+
 
 if __name__ == "__main__":
     main()

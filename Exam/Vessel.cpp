@@ -14,14 +14,15 @@ namespace stochastic {
     }
 
     /**
- * @brief Adds a molecule to the vessel.
- *
- * This function creates a new molecule with the given name and quantity, adds it to the vessel's collection of molecules, and returns a reference to the molecule.
- *
- * @param name The name of the molecule to be added.
- * @param quantity The quantity of the molecule to be added.
- * @return A reference to the newly created molecule.
- */
+     * ------------------  Exercise 3 ------------------
+     * @brief Adds a molecule to the vessel.
+     *
+     * This function creates a new molecule with the given name and quantity, adds it to the vessel's collection of molecules, and returns a reference to the molecule.
+     *
+     * @param name The name of the molecule to be added.
+     * @param quantity The quantity of the molecule to be added.
+     * @return A reference to the newly created molecule.
+     */
 
     Molecule &Vessel::add(const std::string &name, double quantity) {
         auto m = new Molecule(name, quantity);
@@ -30,6 +31,7 @@ namespace stochastic {
     }
 
     /**
+     * ------------------  Exercise 3 ------------------
      * @brief Adds a reaction to the vessel.
      * @param reaction The reaction to be added.
      */
@@ -38,6 +40,7 @@ namespace stochastic {
     }
 
 /**
+ * ------------------  Exercise 2 ------------------
  * @brief Prints a formatted representation of the reactions in the vessel.
  *
  * For each reaction, it prints the names of the reactants, the reaction rate, and the names of the products.
@@ -79,6 +82,7 @@ namespace stochastic {
 
 
 /**
+ * ------------------  Exercise 2 ------------------
  * @brief Assigns unique tags to each molecule involved in the reactions.
  *
  * For each reactant and product in the reaction, it checks if the molecule's name is already in the symbol table.
@@ -104,6 +108,7 @@ namespace stochastic {
     }
 
 /**
+ * ------------------  Exercise 2 ------------------
  * @brief Creates a vector of Arrows representing the reactions in the vessel.
  *
  * For each reaction, it creates an Arrow object.
@@ -131,6 +136,7 @@ namespace stochastic {
     }
 
 /**
+ * ------------------  Exercise 2 ------------------
  * @brief Writes the reactions represented by Arrows to a .dot file.
  *
  * The function opens a file with the name of the vessel and writes the .dot representation of the reactions to it.
@@ -197,6 +203,7 @@ namespace stochastic {
     }
 
 /**
+ * ------------------  Exercise 2 ------------------
  * @brief Generates a directed graph representation of the reactions in the vessel.
  *
  * This function first creates a symbol table and a counter for assigning unique tags to the molecules.

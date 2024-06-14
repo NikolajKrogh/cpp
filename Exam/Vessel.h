@@ -27,19 +27,6 @@ namespace stochastic {
 
         void get_digraph();
 
-        /**
-         * @brief Returns a string representation of the symbol table
-         * @return string representation of the symbol table
-         */
-        std::string get_symbol_table_representation() {
-            std::string s = "";
-            for (const auto &m: molecules.values()) {
-                s += ", " + m->name + ": " + std::to_string(m->quantity);
-
-            }
-            return s;
-        }
-
         void assign_tags(SymbolTable <std::string, std::string> &table, int &counter);
 
         std::vector<Arrow> create_arrows(const SymbolTable <std::string, std::string> &table);
