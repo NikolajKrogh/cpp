@@ -312,14 +312,9 @@ void benchmark() {
 int main() {
 
 //    symbol_table_test();
-
 //    pretty_print_circadian_rhythm();
-
-
 //    single_simulation_test();
-
 //    parallel_simulation_test();
-
 //    peak_hospitalization_NNJ_NDK();
 //    peak_hospitalized_over_100_simulations();
     benchmark();
