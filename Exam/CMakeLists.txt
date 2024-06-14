@@ -12,23 +12,22 @@ include_directories(${GTEST_INCLUDE_DIRS})
 set(COMMON_SRC
     Arrow.cpp
     Arrow.h
+    benchmark.h
+    benchmark.cpp
     Environment.cpp
     Environment.h
     Molecule.cpp
     Molecule.h
-        ParallelSimulation.h
+    ParallelSimulation.h
     Reaction.cpp
     Reaction.h
-        Simulation.h
+    Simulation.h
     SymbolTable.h
     Vessel.cpp
     Vessel.h
 )
 
-add_executable(Exam main.cpp ${COMMON_SRC}
-        benchmark.h
-        benchmark.cpp
-        benchmark.h)
+add_executable(Exam main.cpp ${COMMON_SRC})
 
 # Define test source files
 set(TEST_SRC

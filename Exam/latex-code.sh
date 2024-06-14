@@ -2,7 +2,7 @@
 
 set -ex
 
-function make_latex {
+make_latex() {
 	author=$1
 	cat <<'EOF'
 \documentclass[a4paper]{article}
@@ -22,6 +22,7 @@ function make_latex {
 
 \protected\def\plusminus{\ensuremath{\pm}}
 \DeclareUnicodeCharacter{C2B1}{\plusminus}
+\DeclareUnicodeCharacter{001B}{}
 
 \lstset{
   inputencoding=utf8,
@@ -80,9 +81,9 @@ function make_latex {
 }
 
 EOF
-	echo '\title{'$title'}'
-	echo '\author{'$author'}'
-	echo '\begin{document}'
+	echo '\\title{'$title'}'
+	echo '\\author{'$author'}'
+	echo '\\begin{document}'
 	echo '  \maketitle'
 
 	tex_files=$(find . -type f -iname "*.tex")

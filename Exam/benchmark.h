@@ -1,13 +1,14 @@
 #pragma once
 
-
 #include <vector>
 #include <chrono>
 #include <string>
 
-namespace stochastic {
+namespace stochastic
+{
 
-    class Benchmark {
+    class Benchmark
+    {
     public:
         void start(const std::string &name);
 
@@ -16,7 +17,8 @@ namespace stochastic {
         void report();
 
     private:
-        struct time_point {
+        struct time_point
+        {
             std::string name;
             std::chrono::high_resolution_clock::time_point start;
             std::chrono::high_resolution_clock::time_point stop;

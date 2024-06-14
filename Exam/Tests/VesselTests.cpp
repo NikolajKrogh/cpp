@@ -41,7 +41,7 @@ TEST(VesselTest, PrettyPrintVesselWithSingleReactionNoProducts) {
     testing::internal::CaptureStdout();
     vessel.pretty_print();
     std::string output = testing::internal::GetCapturedStdout();
-    EXPECT_EQ(output, "H2O -> 1 -> ∅\n");
+    EXPECT_EQ(output, "H2O -> 1 -> none\n");
 }
 
 TEST(VesselTest, PrettyPrintVesselWithSingleReactionWithProducts) {

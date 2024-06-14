@@ -39,14 +39,14 @@ namespace stochastic {
         reactions.push_back(reaction);
     }
 
-/**
- * ------------------  Exercise 2 ------------------
- * @brief Prints a formatted representation of the reactions in the vessel.
- *
- * For each reaction, it prints the names of the reactants, the reaction rate, and the names of the products.
- * If a reactant or product is not the last one in its list, a plus sign is printed after its name.
- * If there are no products for a reaction, it prints '∅'.
- */
+    /**
+     * ------------------  Exercise 2 ------------------
+     * @brief Prints a formatted representation of the reactions in the vessel.
+     *
+     * For each reaction, it prints the names of the reactants, the reaction rate, and the names of the products.
+     * If a reactant or product is not the last one in its list, a plus sign is printed after its name.
+     * If there are no products for a reaction, it prints 'none'.
+     */
     void Vessel::pretty_print() {
 
         // Iterate over each reaction
@@ -66,7 +66,7 @@ namespace stochastic {
 
             // Check if there are any products in the reaction
             if (reaction.products.empty()) {
-                std::cout << "∅";
+                std::cout << "none";
             } else {
                 // If there are products, print each one
                 for (size_t i = 0; i < reaction.products.size(); ++i) {
@@ -81,17 +81,17 @@ namespace stochastic {
     }
 
 
-/**
- * ------------------  Exercise 2 ------------------
- * @brief Assigns unique tags to each molecule involved in the reactions.
- *
- * For each reactant and product in the reaction, it checks if the molecule's name is already in the symbol table.
- * If it's not, it inserts the molecule's name into the symbol table with a unique tag ("s" followed by a counter).
- * The counter is incremented after each insertion.
- *
- * @param table A reference to the symbol table where the molecule names and their corresponding tags are stored.
- * @param counter A reference to the counter used to generate unique tags for the molecules.
- */
+    /**
+     * ------------------  Exercise 2 ------------------
+     * @brief Assigns unique tags to each molecule involved in the reactions.
+     *
+     * For each reactant and product in the reaction, it checks if the molecule's name is already in the symbol table.
+     * If it's not, it inserts the molecule's name into the symbol table with a unique tag ("s" followed by a counter).
+     * The counter is incremented after each insertion.
+     *
+     * @param table A reference to the symbol table where the molecule names and their corresponding tags are stored.
+     * @param counter A reference to the counter used to generate unique tags for the molecules.
+     */
     void Vessel::assign_tags(SymbolTable<std::string, std::string> &table, int &counter) {
         for (auto &r: reactions) {
             for (auto &m: r.reactants) {
@@ -107,18 +107,18 @@ namespace stochastic {
         }
     }
 
-/**
- * ------------------  Exercise 2 ------------------
- * @brief Creates a vector of Arrows representing the reactions in the vessel.
- *
- * For each reaction, it creates an Arrow object.
- * For each reactant and product in the reaction, it adds their corresponding tags from the symbol table to the source and target of the Arrow, respectively.
- * It also sets the rate of the Arrow to the rate of the reaction.
- * The created Arrow is then added to a vector of Arrows, which is returned at the end.
- *
- * @param table A reference to the symbol table where the molecule names and their corresponding tags are stored.
- * @return A vector of Arrows representing the reactions in the vessel.
- */
+    /**
+     * ------------------  Exercise 2 ------------------
+     * @brief Creates a vector of Arrows representing the reactions in the vessel.
+     *
+     * For each reaction, it creates an Arrow object.
+     * For each reactant and product in the reaction, it adds their corresponding tags from the symbol table to the source and target of the Arrow, respectively.
+     * It also sets the rate of the Arrow to the rate of the reaction.
+     * The created Arrow is then added to a vector of Arrows, which is returned at the end.
+     *
+     * @param table A reference to the symbol table where the molecule names and their corresponding tags are stored.
+     * @return A vector of Arrows representing the reactions in the vessel.
+     */
     std::vector<Arrow> Vessel::create_arrows(const SymbolTable<std::string, std::string> &table) {
         std::vector<Arrow> arrows;
         for (const auto &r: reactions) {
@@ -135,18 +135,18 @@ namespace stochastic {
         return arrows;
     }
 
-/**
- * ------------------  Exercise 2 ------------------
- * @brief Writes the reactions represented by Arrows to a .dot file.
- *
- * The function opens a file with the name of the vessel and writes the .dot representation of the reactions to it.
- * For each molecule in the vessel, it writes a line in the .dot file with the molecule's tag, name, and color.
- * For each Arrow in the vector, it writes a line in the .dot file with the Arrow's tag, rate, source, and target.
- * The function then closes the file and generates a .png file from the .dot file using the 'dot' command.
- *
- * @param arrows A vector of Arrows representing the reactions in the vessel.
- * @param table A reference to the symbol table where the molecule names and their corresponding tags are stored.
- */
+    /**
+     * ------------------  Exercise 2 ------------------
+     * @brief Writes the reactions represented by Arrows to a .dot file.
+     *
+     * The function opens a file with the name of the vessel and writes the .dot representation of the reactions to it.
+     * For each molecule in the vessel, it writes a line in the .dot file with the molecule's tag, name, and color.
+     * For each Arrow in the vector, it writes a line in the .dot file with the Arrow's tag, rate, source, and target.
+     * The function then closes the file and generates a .png file from the .dot file using the 'dot' command.
+     *
+     * @param arrows A vector of Arrows representing the reactions in the vessel.
+     * @param table A reference to the symbol table where the molecule names and their corresponding tags are stored.
+     */
     void Vessel::write_to_file(const std::vector<Arrow> &arrows, const SymbolTable<std::string, std::string> &table) {
         std::ofstream file;
         std::string path = "/home/krogh/CLionProjects/cpp/Exam/" + name + ".dot";
@@ -197,20 +197,20 @@ namespace stochastic {
         file.close();
 
         std::string command =
-                "dot -Tpng " + path + " -o /home/krogh/CLionProjects/cpp/Exam/" +
-                name + ".png";
+                "dot -Tpng " + path + " -o /home/krogh/CLionProjects/cpp/Exam/images/" +
+                name + "_tree" + ".png";
         system(command.c_str());
     }
 
-/**
- * ------------------  Exercise 2 ------------------
- * @brief Generates a directed graph representation of the reactions in the vessel.
- *
- * This function first creates a symbol table and a counter for assigning unique tags to the molecules.
- * It then calls the assign_tags function to assign unique tags to each molecule involved in the reactions.
- * After that, it calls the create_arrows function to create a vector of Arrows representing the reactions in the vessel.
- * Finally, it calls the write_to_file function to write the reactions represented by the Arrows to a .dot file.
- */
+    /**
+     * ------------------  Exercise 2 ------------------
+     * @brief Generates a directed graph representation of the reactions in the vessel.
+     *
+     * This function first creates a symbol table and a counter for assigning unique tags to the molecules.
+     * It then calls the assign_tags function to assign unique tags to each molecule involved in the reactions.
+     * After that, it calls the create_arrows function to create a vector of Arrows representing the reactions in the vessel.
+     * Finally, it calls the write_to_file function to write the reactions represented by the Arrows to a .dot file.
+     */
     void Vessel::get_digraph() {
 
         SymbolTable<std::string, std::string> table;

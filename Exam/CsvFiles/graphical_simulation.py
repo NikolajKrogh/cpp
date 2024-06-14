@@ -24,12 +24,12 @@ def plot_example(file_path):
     plt.legend()
 
     # Ensure the directory exists
-    graphs_dir = 'CsvFiles/graphs/'
+    graphs_dir = 'images/'
     if not os.path.exists(graphs_dir):
         os.makedirs(graphs_dir)
 
     # Save the plot to a PNG file
-    plt.savefig('CsvFiles/graphs/' + file_path.split('/')[-1].replace('.csv', '') + '.png', format='png')
+    plt.savefig('images/' + file_path.split('/')[-1].replace('.csv', '') + '.png', format='png')
 
 
 def plot_circadian_rhythm(file_path):
@@ -55,12 +55,12 @@ def plot_circadian_rhythm(file_path):
     plt.legend()
 
     # Ensure the directory exists
-    graphs_dir = 'CsvFiles/graphs/'
+    graphs_dir = 'images/'
     if not os.path.exists(graphs_dir):
         os.makedirs(graphs_dir)
 
     # Save the plot to a PNG file
-    plt.savefig('CsvFiles/graphs/' + file_path.split('/')[-1].replace('.csv', '') + '.png', format='png')
+    plt.savefig('images/' + file_path.split('/')[-1].replace('.csv', '') + '.png', format='png')
 
 
 def plot_covid19(file_path):
@@ -82,12 +82,12 @@ def plot_covid19(file_path):
     plt.legend()
 
     # Ensure the directory exists
-    graphs_dir = 'CsvFiles/graphs/'
+    graphs_dir = 'images/'
     if not os.path.exists(graphs_dir):
         os.makedirs(graphs_dir)
 
     # Save the plot to a PNG file
-    plt.savefig('CsvFiles/graphs/' + file_path.split('/')[-1].replace('.csv', '') + '.png', format='png')
+    plt.savefig('images/' + file_path.split('/')[-1].replace('.csv', '') + '.png', format='png')
 
 
 def main():
@@ -96,7 +96,7 @@ def main():
     plot_example('CsvFiles/Example 2.csv')
     plot_example('CsvFiles/Example 3.csv')
     plot_circadian_rhythm('CsvFiles/Circadian Rhythm.csv')
-    plot_covid19('CsvFiles/COVID19 SEIHR: 10000.csv')
+    plot_covid19('CsvFiles/COVID19 SEIHR_10000.csv')
 
 
 if __name__ == "__main__":

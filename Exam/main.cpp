@@ -58,12 +58,12 @@ stochastic::Vessel simulation_circadian_rhythm() {
     return v;
 };
 
-stochastic::Vessel simulation_covid19(uint32_t N) {
-    auto v = stochastic::Vessel{"COVID19 SEIHR: " + std::to_string(N)};
+stochastic::Vessel simulation_covid19(uint32_t population_size) {
+    auto v = stochastic::Vessel{"COVID19 SEIHR_" + std::to_string(population_size)};
     const auto eps = 0.0009; // initial fraction of infectious
-    const auto I0 = size_t(std::round(eps * N)); // initial infectious
-    const auto E0 = size_t(std::round(eps * N * 15)); // initial exposed
-    const auto S0 = N - I0 - E0; // initial susceptible
+    const auto I0 = size_t(std::round(eps * population_size)); // initial infectious
+    const auto E0 = size_t(std::round(eps * population_size * 15)); // initial exposed
+    const auto S0 = population_size - I0 - E0; // initial susceptible
     const auto R0 = 2.4; // initial basic reproductive number
     const auto alpha = 1.0 / 5.1; // incubation rate (E -> I) ~5.1 days
     const auto gamma = 1.0 / 3.1; // recovery rate (I -> R) ~3.1 days
@@ -76,7 +76,7 @@ stochastic::Vessel simulation_covid19(uint32_t N) {
     const auto I = v.add("I", I0); // infectious
     const auto H = v.add("H", 0); // hospitalized
     const auto R = v.add("R", 0); // removed/immune (recovered + dead)
-    v.add((S + I) >> beta / N >>= E + I); // susceptible becomes exposed by infectious
+    v.add((S + I) >> beta / population_size >>= E + I); // susceptible becomes exposed by infectious
     v.add(E >> alpha >>= I); // exposed becomes infectious
     v.add(I >> gamma >>= R); // infectious becomes removed
     v.add(I >> kappa >>= H); // infectious becomes hospitalized
@@ -155,8 +155,8 @@ void peak_hospitalization_NNJ_NDK() {
             std::cout << vessel.name << "\nPeak hospitalized: " << max_hospitalized << std::endl;
         }
     };
-    auto NNJ = 589755;
     auto NDK = 5822763;
+    auto NNJ = 589755;
     std::vector<int> population_sizes = {NNJ};
     for (int population_size: population_sizes) {
         auto vessel = simulation_covid19(population_size);
@@ -164,7 +164,7 @@ void peak_hospitalization_NNJ_NDK() {
     }
 }
 
-void peak_hospitalized_over_100_simulations() {
+void average_peak_hospitalized_over_100_simulations() {
     int sum_max_hospitalized = 0;
     int number_of_simulations = 100;
 
@@ -186,8 +186,8 @@ void peak_hospitalized_over_100_simulations() {
         vessels.push_back(simulation_covid19(10000));
     }
     stochastic::ParallelSimulation::parallelize_simulations(vessels, observer, 100, false);
-    double averagePeakHospitalized = static_cast<double>(sum_max_hospitalized) / number_of_simulations;
-    std::cout << "Average peak hospitalized over " << number_of_simulations << " simulations: " << averagePeakHospitalized
+    double average_peak_hospitalized = static_cast<double>(sum_max_hospitalized) / number_of_simulations;
+    std::cout << "Average peak hospitalized over " << number_of_simulations << " simulations: " << average_peak_hospitalized
               << std::endl;
 }
 
@@ -316,7 +316,7 @@ int main() {
 //    single_simulation_test();
 //    parallel_simulation_test();
 //    peak_hospitalization_NNJ_NDK();
-//    peak_hospitalized_over_100_simulations();
-    benchmark();
+//    average_peak_hospitalized_over_100_simulations();
+//    benchmark();
     return 0;
 }
